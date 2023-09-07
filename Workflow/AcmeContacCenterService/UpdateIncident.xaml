@@ -1,0 +1,340 @@
+<Activity mc:Ignorable="sap sap2010" x:Class="UpdateIncident" this:UpdateIncident.in_Incident_sys_id="94e2a68e1b09b110ccbddd71ec4bcb29" this:UpdateIncident.in_IncidentState="2" this:UpdateIncident.in_WorkNotes="Working" xmlns="http://schemas.microsoft.com/netfx/2009/xaml/activities" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:s="clr-namespace:System;assembly=System.Private.CoreLib" xmlns:sap="http://schemas.microsoft.com/netfx/2009/xaml/activities/presentation" xmlns:sap2010="http://schemas.microsoft.com/netfx/2010/xaml/activities/presentation" xmlns:scg="clr-namespace:System.Collections.Generic;assembly=System.Private.CoreLib" xmlns:sco="clr-namespace:System.Collections.ObjectModel;assembly=System.Private.CoreLib" xmlns:this="clr-namespace:" xmlns:uibi="http://schemas.uipath.com/workflow/infrastructure/baf/uibi" xmlns:uiisi="http://schemas.uipath.com/workflow/infrastructure/is/uiisi" xmlns:usia="clr-namespace:UiPath.ServiceNow.IntegrationService.Activities;assembly=UiPath.ServiceNow.IntegrationService.Activities" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+  <x:Members>
+    <x:Property Name="in_Incident_sys_id" Type="InArgument(x:String)" />
+    <x:Property Name="in_ResolutionCode" Type="InArgument(x:String)" />
+    <x:Property Name="in_ResolutionNotes" Type="InArgument(x:String)" />
+    <x:Property Name="in_IncidentState" Type="InArgument(x:String)" />
+    <x:Property Name="in_WorkNotes" Type="InArgument(x:String)" />
+  </x:Members>
+  <VisualBasic.Settings>
+    <x:Null />
+  </VisualBasic.Settings>
+  <sap:VirtualizedContainerService.HintSize>440,665</sap:VirtualizedContainerService.HintSize>
+  <sap2010:WorkflowViewState.IdRef>UpdateIncident_1</sap2010:WorkflowViewState.IdRef>
+  <TextExpression.NamespacesForImplementation>
+    <sco:Collection x:TypeArguments="x:String">
+      <x:String>System.Activities</x:String>
+      <x:String>System.Activities.Statements</x:String>
+      <x:String>System.Activities.Expressions</x:String>
+      <x:String>System.Activities.Validation</x:String>
+      <x:String>System.Activities.XamlIntegration</x:String>
+      <x:String>Microsoft.VisualBasic</x:String>
+      <x:String>Microsoft.VisualBasic.Activities</x:String>
+      <x:String>System</x:String>
+      <x:String>System.Collections</x:String>
+      <x:String>System.Collections.Generic</x:String>
+      <x:String>System.Data</x:String>
+      <x:String>System.Diagnostics</x:String>
+      <x:String>System.Drawing</x:String>
+      <x:String>System.IO</x:String>
+      <x:String>System.Linq</x:String>
+      <x:String>System.Net.Mail</x:String>
+      <x:String>System.Xml</x:String>
+      <x:String>System.Xml.Linq</x:String>
+      <x:String>UiPath.Core</x:String>
+      <x:String>UiPath.Core.Activities</x:String>
+      <x:String>System.Windows.Markup</x:String>
+      <x:String>GlobalVariablesNamespace</x:String>
+      <x:String>GlobalConstantsNamespace</x:String>
+      <x:String>System.Reflection</x:String>
+      <x:String>System.Collections.ObjectModel</x:String>
+      <x:String>UiPath.BAF.Infrastructure.Entity</x:String>
+      <x:String>UiPath.IntegrationService.Infrastructure.Descriptor</x:String>
+      <x:String>UiPath.BAF.Infrastructure.Enums</x:String>
+      <x:String>UiPath.BAF.Infrastructure.Telemetry</x:String>
+      <x:String>UiPath.BAF.Infrastructure</x:String>
+      <x:String>UiPath.BAF.Infrastructure.Connection</x:String>
+      <x:String>UiPath.ServiceNow.IntegrationService.Activities</x:String>
+      <x:String>UiPath.IntegrationCore.Activities</x:String>
+      <x:String>UiPath.BAF.Activities</x:String>
+      <x:String>UiPath.BAF.Infrastructure.Contracts</x:String>
+      <x:String>System.Runtime.Serialization</x:String>
+      <x:String>System.Runtime.Serialization</x:String>
+    </sco:Collection>
+  </TextExpression.NamespacesForImplementation>
+  <TextExpression.ReferencesForImplementation>
+    <sco:Collection x:TypeArguments="AssemblyReference">
+      <AssemblyReference>System.Activities</AssemblyReference>
+      <AssemblyReference>Microsoft.VisualBasic</AssemblyReference>
+      <AssemblyReference>System.Private.CoreLib</AssemblyReference>
+      <AssemblyReference>System.Data</AssemblyReference>
+      <AssemblyReference>System.Data.Common</AssemblyReference>
+      <AssemblyReference>System.Data.DataSetExtensions</AssemblyReference>
+      <AssemblyReference>System</AssemblyReference>
+      <AssemblyReference>System.Drawing</AssemblyReference>
+      <AssemblyReference>System.Core</AssemblyReference>
+      <AssemblyReference>System.Xml</AssemblyReference>
+      <AssemblyReference>System.Xml.Linq</AssemblyReference>
+      <AssemblyReference>System.Xaml</AssemblyReference>
+      <AssemblyReference>UiPath.System.Activities</AssemblyReference>
+      <AssemblyReference>UiPath.UiAutomation.Activities</AssemblyReference>
+      <AssemblyReference>UiPath.Studio.Constants</AssemblyReference>
+      <AssemblyReference>System.Reflection.DispatchProxy</AssemblyReference>
+      <AssemblyReference>System.Reflection.TypeExtensions</AssemblyReference>
+      <AssemblyReference>System.ObjectModel</AssemblyReference>
+      <AssemblyReference>System.Reflection.Metadata</AssemblyReference>
+      <AssemblyReference>UiPath.BAF.Infrastructure</AssemblyReference>
+      <AssemblyReference>UiPath.IntegrationService.Infrastructure</AssemblyReference>
+      <AssemblyReference>UiPath.ServiceNow.IntegrationService.Activities</AssemblyReference>
+      <AssemblyReference>UiPath.Workflow</AssemblyReference>
+      <AssemblyReference>System.Private.ServiceModel</AssemblyReference>
+      <AssemblyReference>System.Runtime.Serialization.Formatters</AssemblyReference>
+      <AssemblyReference>System.Private.DataContractSerialization</AssemblyReference>
+      <AssemblyReference>System.Runtime.Serialization.Primitives</AssemblyReference>
+      <AssemblyReference>System.ComponentModel.TypeConverter</AssemblyReference>
+      <AssemblyReference>System.Console</AssemblyReference>
+      <AssemblyReference>System.Configuration.ConfigurationManager</AssemblyReference>
+      <AssemblyReference>System.Security.Permissions</AssemblyReference>
+      <AssemblyReference>System.ComponentModel</AssemblyReference>
+      <AssemblyReference>System.Memory</AssemblyReference>
+      <AssemblyReference>System.Private.Uri</AssemblyReference>
+    </sco:Collection>
+  </TextExpression.ReferencesForImplementation>
+  <Sequence DisplayName="UpdateIncident" sap:VirtualizedContainerService.HintSize="450,600" sap2010:WorkflowViewState.IdRef="Sequence_1">
+    <Sequence.Variables>
+      <Variable x:TypeArguments="s:DateTimeOffset" Name="CurrentTime" />
+    </Sequence.Variables>
+    <sap:WorkflowViewStateService.ViewState>
+      <scg:Dictionary x:TypeArguments="x:String, x:Object">
+        <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+      </scg:Dictionary>
+    </sap:WorkflowViewStateService.ViewState>
+    <usia:UpdateIncident ActivityInstanceId="55c41af9-251e-4a3e-9eda-f8c5f60164e9" BindingsVersion="2.1" BusinessEntityName="Incident" ConfiguredBusinessEntity="curated_incident" ConnectionId="673de01b-a685-4cff-b71f-01eb1e07cdeb" Connector="uipath-servicenow-servicenow" CrudOperation="Update" DesignConnectionEnabled="True" DisplayName="Update Incident" sap:VirtualizedContainerService.HintSize="388,489" sap2010:WorkflowViewState.IdRef="UpdateIncident_2">
+      <usia:UpdateIncident.BusinessEntity>
+        <uibi:BusinessEntity Name="curated_incident">
+          <uibi:BusinessEntity.AllFields>
+            <scg:List x:TypeArguments="uibi:EntityField" Capacity="103">
+              <uiisi:OperationEntityField x:TypeArguments="x:String" ArgumentDirection="In" ArgumentType="x:String" DataType="String" Description="The ID of incident." DisplayName="Incident ID" FormDataType="ExpressionTextBox" IsChildEntityField="False" IsCustomField="False" IsDefault="False" IsDeletable="False" IsHidden="True" IsIdField="True" IsMandatory="True" IsPriority="False" IsSelected="False" Location="Body" Name="sys_id" Order="1" ShouldFilterOnChange="False" />
+              <uiisi:OperationEntityField x:TypeArguments="x:String" x:Name="__ReferenceID1" ArgumentDirection="In" ArgumentType="x:String" DataType="String" Description="Start typing the incident number to find the incident that needs to be updated" DisplayName="Incident ID" FormDataType="ExpressionTextBox" InArgumentValue="[in_Incident_sys_id]" IsChildEntityField="False" IsCustomField="False" IsDefault="False" IsDeletable="False" IsHidden="False" IsIdField="False" IsMandatory="True" IsParameter="True" IsPriority="False" IsSelected="False" Location="Path" Name="incidentId" ShouldFilterOnChange="False">
+                <uiisi:OperationEntityField.ArgumentValue>
+                  <InArgument x:TypeArguments="x:String">[in_Incident_sys_id]</InArgument>
+                </uiisi:OperationEntityField.ArgumentValue>
+                <uiisi:OperationEntityField.Metadata>
+                  <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                    <x:Boolean x:Key="IsPermanentlyHidden">False</x:Boolean>
+                  </scg:Dictionary>
+                </uiisi:OperationEntityField.Metadata>
+                <uiisi:OperationEntityField.Value>
+                  <VisualBasicValue x:TypeArguments="x:String">[in_Incident_sys_id]</VisualBasicValue>
+                </uiisi:OperationEntityField.Value>
+              </uiisi:OperationEntityField>
+              <uiisi:OperationEntityField x:TypeArguments="x:String" ArgumentDirection="In" ArgumentType="x:String" DataType="String" Description="Active" DisplayName="Active" FormDataType="ExpressionTextBox" IsChildEntityField="False" IsCustomField="False" IsDefault="False" IsDeletable="True" IsHidden="True" IsIdField="False" IsMandatory="False" IsPriority="False" IsSelected="False" Location="Body" Name="active" ShouldFilterOnChange="False" />
+              <uiisi:OperationEntityField x:TypeArguments="x:String" ArgumentDirection="In" ArgumentType="x:String" DataType="String" Description="Activity due" DisplayName="Activity due" FormDataType="ExpressionTextBox" IsChildEntityField="False" IsCustomField="False" IsDefault="False" IsDeletable="True" IsHidden="True" IsIdField="False" IsMandatory="False" IsPriority="False" IsSelected="False" Location="Body" Name="activity_due" ShouldFilterOnChange="False" />
+              <uiisi:OperationEntityField x:TypeArguments="s:DateTimeOffset" ArgumentDirection="In" ArgumentType="s:DateTimeOffset" DataType="DateTimeOffset" Description="Actual end" DisplayName="Actual end" FormDataType="ExpressionTextBox" IsChildEntityField="False" IsCustomField="False" IsDefault="False" IsDeletable="True" IsHidden="True" IsIdField="False" IsMandatory="False" IsPriority="False" IsSelected="False" Location="Body" Mask="yyyy-MM-dd'T'HH:mm:sszzz" Name="work_end" ShouldFilterOnChange="False" />
+              <uiisi:OperationEntityField x:TypeArguments="s:DateTimeOffset" ArgumentDirection="In" ArgumentType="s:DateTimeOffset" DataType="DateTimeOffset" Description="Actual start" DisplayName="Actual start" FormDataType="ExpressionTextBox" IsChildEntityField="False" IsCustomField="False" IsDefault="False" IsDeletable="True" IsHidden="True" IsIdField="False" IsMandatory="False" IsPriority="False" IsSelected="False" Location="Body" Mask="yyyy-MM-dd'T'HH:mm:sszzz" Name="work_start" ShouldFilterOnChange="False" />
+              <uiisi:OperationEntityField x:TypeArguments="x:String" ArgumentDirection="In" ArgumentType="x:String" DataType="String" Description="Additional assignee list Value" DisplayName="Additional assignee list" FormDataType="ExpressionTextBox" IsChildEntityField="False" IsCustomField="False" IsDefault="False" IsDeletable="True" IsHidden="True" IsIdField="False" IsMandatory="False" IsPriority="False" IsSelected="False" Location="Body" Name="additional_assignee_list" ShouldFilterOnChange="False" />
+              <uiisi:OperationEntityField x:TypeArguments="x:String" ArgumentDirection="In" ArgumentType="x:String" DataType="String" Description="Additional comments" DisplayName="Additional comments" FormDataType="ExpressionTextBox" IsChildEntityField="False" IsCustomField="False" IsDefault="False" IsDeletable="True" IsHidden="True" IsIdField="False" IsMandatory="False" IsPriority="False" IsSelected="False" Location="Body" Name="comments" ShouldFilterOnChange="False" />
+              <uiisi:OperationEntityField x:TypeArguments="x:String" ArgumentDirection="In" ArgumentType="x:String" DataType="String" Description="Approval history" DisplayName="Approval history" FormDataType="ExpressionTextBox" IsChildEntityField="False" IsCustomField="False" IsDefault="False" IsDeletable="True" IsHidden="True" IsIdField="False" IsMandatory="False" IsPriority="False" IsSelected="False" Location="Body" Name="approval_history" ShouldFilterOnChange="False" />
+              <uiisi:OperationEntityField x:TypeArguments="s:DateTimeOffset" ArgumentDirection="In" ArgumentType="s:DateTimeOffset" DataType="DateTimeOffset" Description="Approval set" DisplayName="Approval set" FormDataType="ExpressionTextBox" IsChildEntityField="False" IsCustomField="False" IsDefault="False" IsDeletable="True" IsHidden="True" IsIdField="False" IsMandatory="False" IsPriority="False" IsSelected="False" Location="Body" Mask="yyyy-MM-dd'T'HH:mm:sszzz" Name="approval_set" ShouldFilterOnChange="False" />
+              <uiisi:OperationEntityField x:TypeArguments="x:String" ArgumentDirection="In" ArgumentType="x:String" DataType="String" Description="Approval" DisplayName="Approval" FormDataType="ExpressionTextBox" IsChildEntityField="False" IsCustomField="False" IsDefault="False" IsDeletable="True" IsHidden="True" IsIdField="False" IsMandatory="False" IsPriority="False" IsSelected="False" Location="Body" Name="approval" ShouldFilterOnChange="False" />
+              <uiisi:OperationEntityField x:TypeArguments="x:String" ArgumentDirection="In" ArgumentType="x:String" DataType="String" Description="Assigned to Value" DisplayName="Assigned to" FormDataType="ExpressionTextBox" IsChildEntityField="False" IsCustomField="False" IsDefault="False" IsDeletable="True" IsHidden="True" IsIdField="False" IsMandatory="False" IsPriority="False" IsSelected="False" Location="Body" Name="assigned_to" ShouldFilterOnChange="False" />
+              <uiisi:OperationEntityField x:TypeArguments="x:String" ArgumentDirection="In" ArgumentType="x:String" DataType="String" Description="Assignment group Value" DisplayName="Assignment group" FormDataType="ExpressionTextBox" IsChildEntityField="False" IsCustomField="False" IsDefault="False" IsDeletable="True" IsHidden="True" IsIdField="False" IsMandatory="False" IsPriority="False" IsSelected="False" Location="Body" Name="assignment_group" ShouldFilterOnChange="False" />
+              <uiisi:OperationEntityField x:TypeArguments="x:String" ArgumentDirection="In" ArgumentType="x:String" DataType="String" Description="Business impact" DisplayName="Business impact" FormDataType="ExpressionTextBox" IsChildEntityField="False" IsCustomField="False" IsDefault="False" IsDeletable="True" IsHidden="True" IsIdField="False" IsMandatory="False" IsPriority="False" IsSelected="False" Location="Body" Name="business_impact" ShouldFilterOnChange="False" />
+              <uiisi:OperationEntityField x:TypeArguments="x:String" ArgumentDirection="In" ArgumentType="x:String" DataType="String" Description="Person who reported or is affected by this incident" DisplayName="Caller" FormDataType="ExpressionTextBox" IsChildEntityField="False" IsCustomField="False" IsDefault="False" IsDeletable="True" IsHidden="True" IsIdField="False" IsMandatory="False" IsPriority="False" IsSelected="False" Location="Body" Name="caller_id" Order="1" ShouldFilterOnChange="False" />
+              <uiisi:OperationEntityField x:TypeArguments="x:String" ArgumentDirection="In" ArgumentType="x:String" DataType="String" Description="Category" DisplayName="Category" FormDataType="ExpressionTextBox" IsChildEntityField="False" IsCustomField="False" IsDefault="False" IsDeletable="True" IsHidden="True" IsIdField="False" IsMandatory="False" IsPriority="False" IsSelected="False" Location="Body" Name="category" ShouldFilterOnChange="False" />
+              <uiisi:OperationEntityField x:TypeArguments="x:String" ArgumentDirection="In" ArgumentType="x:String" DataType="String" Description="Caused by Change Value" DisplayName="Caused by Change" FormDataType="ExpressionTextBox" IsChildEntityField="False" IsCustomField="False" IsDefault="False" IsDeletable="True" IsHidden="True" IsIdField="False" IsMandatory="False" IsPriority="False" IsSelected="False" Location="Body" Name="caused_by" ShouldFilterOnChange="False" />
+              <uiisi:OperationEntityField x:TypeArguments="x:String" ArgumentDirection="In" ArgumentType="x:String" DataType="String" Description="Change Request Value" DisplayName="Change Request" FormDataType="ExpressionTextBox" IsChildEntityField="False" IsCustomField="False" IsDefault="False" IsDeletable="True" IsHidden="True" IsIdField="False" IsMandatory="False" IsPriority="False" IsSelected="False" Location="Body" Name="rfc" ShouldFilterOnChange="False" />
+              <uiisi:OperationEntityField x:TypeArguments="x:Int32" ArgumentDirection="In" ArgumentType="x:Int32" DataType="Int32" Description="Child Incidents" DisplayName="Child Incidents" FormDataType="ExpressionTextBox" IsChildEntityField="False" IsCustomField="False" IsDefault="False" IsDeletable="True" IsHidden="True" IsIdField="False" IsMandatory="False" IsPriority="False" IsSelected="False" Location="Body" Name="child_incidents" ShouldFilterOnChange="False" />
+              <uiisi:OperationEntityField x:TypeArguments="x:String" ArgumentDirection="In" ArgumentType="x:String" DataType="String" Description="Closed by Value" DisplayName="Closed by" FormDataType="ExpressionTextBox" IsChildEntityField="False" IsCustomField="False" IsDefault="False" IsDeletable="True" IsHidden="True" IsIdField="False" IsMandatory="False" IsPriority="False" IsSelected="False" Location="Body" Name="closed_by" ShouldFilterOnChange="False" />
+              <uiisi:OperationEntityField x:TypeArguments="x:String" ArgumentDirection="In" ArgumentType="x:String" DataType="String" Description="Comments and Work notes" DisplayName="Comments and Work notes" FormDataType="ExpressionTextBox" IsChildEntityField="False" IsCustomField="False" IsDefault="False" IsDeletable="True" IsHidden="True" IsIdField="False" IsMandatory="False" IsPriority="False" IsSelected="False" Location="Body" Name="comments_and_work_notes" ShouldFilterOnChange="False" />
+              <uiisi:OperationEntityField x:TypeArguments="x:String" ArgumentDirection="In" ArgumentType="x:String" DataType="String" Description="Company Value" DisplayName="Company" FormDataType="ExpressionTextBox" IsChildEntityField="False" IsCustomField="False" IsDefault="False" IsDeletable="True" IsHidden="True" IsIdField="False" IsMandatory="False" IsPriority="False" IsSelected="False" Location="Body" Name="company" ShouldFilterOnChange="False" />
+              <uiisi:OperationEntityField x:TypeArguments="x:String" ArgumentDirection="In" ArgumentType="x:String" DataType="String" Description="Configuration item Value" DisplayName="Configuration item" FormDataType="ExpressionTextBox" IsChildEntityField="False" IsCustomField="False" IsDefault="False" IsDeletable="True" IsHidden="True" IsIdField="False" IsMandatory="False" IsPriority="False" IsSelected="False" Location="Body" Name="cmdb_ci" ShouldFilterOnChange="False" />
+              <uiisi:OperationEntityField x:TypeArguments="x:String" ArgumentDirection="In" ArgumentType="x:String" DataType="String" Description="Contact type" DisplayName="Contact type" FormDataType="ExpressionTextBox" IsChildEntityField="False" IsCustomField="False" IsDefault="False" IsDeletable="True" IsHidden="True" IsIdField="False" IsMandatory="False" IsPriority="False" IsSelected="False" Location="Body" Name="contact_type" ShouldFilterOnChange="False" />
+              <uiisi:OperationEntityField x:TypeArguments="x:String" ArgumentDirection="In" ArgumentType="x:String" DataType="String" Description="Contract Value" DisplayName="Contract" FormDataType="ExpressionTextBox" IsChildEntityField="False" IsCustomField="False" IsDefault="False" IsDeletable="True" IsHidden="True" IsIdField="False" IsMandatory="False" IsPriority="False" IsSelected="False" Location="Body" Name="contract" ShouldFilterOnChange="False" />
+              <uiisi:OperationEntityField x:TypeArguments="x:String" ArgumentDirection="In" ArgumentType="x:String" DataType="String" Description="Correlation display" DisplayName="Correlation display" FormDataType="ExpressionTextBox" IsChildEntityField="False" IsCustomField="False" IsDefault="False" IsDeletable="True" IsHidden="True" IsIdField="False" IsMandatory="False" IsPriority="False" IsSelected="False" Location="Body" Name="correlation_display" ShouldFilterOnChange="False" />
+              <uiisi:OperationEntityField x:TypeArguments="x:String" ArgumentDirection="In" ArgumentType="x:String" DataType="String" Description="Correlation ID" DisplayName="Correlation ID" FormDataType="ExpressionTextBox" IsChildEntityField="False" IsCustomField="False" IsDefault="False" IsDeletable="True" IsHidden="True" IsIdField="False" IsMandatory="False" IsPriority="False" IsSelected="False" Location="Body" Name="correlation_id" ShouldFilterOnChange="False" />
+              <uiisi:OperationEntityField x:TypeArguments="x:String" ArgumentDirection="In" ArgumentType="x:String" DataType="String" Description="Current Div" DisplayName="Current Div" FormDataType="ExpressionTextBox" IsChildEntityField="False" IsCustomField="True" IsDefault="False" IsDeletable="True" IsHidden="True" IsIdField="False" IsMandatory="False" IsPriority="False" IsSelected="False" Location="Body" Name="u_string_6" ShouldFilterOnChange="False" />
+              <uiisi:OperationEntityField x:TypeArguments="x:String" ArgumentDirection="In" ArgumentType="x:String" DataType="String" Description="Delivery plan Value" DisplayName="Delivery plan" FormDataType="ExpressionTextBox" IsChildEntityField="False" IsCustomField="False" IsDefault="False" IsDeletable="True" IsHidden="True" IsIdField="False" IsMandatory="False" IsPriority="False" IsSelected="False" Location="Body" Name="delivery_plan" ShouldFilterOnChange="False" />
+              <uiisi:OperationEntityField x:TypeArguments="x:String" ArgumentDirection="In" ArgumentType="x:String" DataType="String" Description="Delivery task Value" DisplayName="Delivery task" FormDataType="ExpressionTextBox" IsChildEntityField="False" IsCustomField="False" IsDefault="False" IsDeletable="True" IsHidden="True" IsIdField="False" IsMandatory="False" IsPriority="False" IsSelected="False" Location="Body" Name="delivery_task" ShouldFilterOnChange="False" />
+              <uiisi:OperationEntityField x:TypeArguments="x:String" ArgumentDirection="In" ArgumentType="x:String" DataType="String" Description="Department" DisplayName="Department" FormDataType="ExpressionTextBox" IsChildEntityField="False" IsCustomField="True" IsDefault="False" IsDeletable="True" IsHidden="True" IsIdField="False" IsMandatory="False" IsPriority="False" IsSelected="False" Location="Body" Name="u_choice_7" ShouldFilterOnChange="False" />
+              <uiisi:OperationEntityField x:TypeArguments="x:String" ArgumentDirection="In" ArgumentType="x:String" DataType="String" Description="Description" DisplayName="Description" FormDataType="ExpressionTextBox" IsChildEntityField="False" IsCustomField="False" IsDefault="False" IsDeletable="True" IsHidden="True" IsIdField="False" IsMandatory="False" IsPriority="False" IsSelected="False" Location="Body" Name="description" ShouldFilterOnChange="False" />
+              <uiisi:OperationEntityField x:TypeArguments="x:String" ArgumentDirection="In" ArgumentType="x:String" DataType="String" Description="Domain Path" DisplayName="Domain Path" FormDataType="ExpressionTextBox" IsChildEntityField="False" IsCustomField="False" IsDefault="False" IsDeletable="True" IsHidden="True" IsIdField="False" IsMandatory="False" IsPriority="False" IsSelected="False" Location="Body" Name="sys_domain_path" ShouldFilterOnChange="False" />
+              <uiisi:OperationEntityField x:TypeArguments="x:String" ArgumentDirection="In" ArgumentType="x:String" DataType="String" Description="Domain Value" DisplayName="Domain" FormDataType="ExpressionTextBox" IsChildEntityField="False" IsCustomField="False" IsDefault="False" IsDeletable="True" IsHidden="True" IsIdField="False" IsMandatory="False" IsPriority="False" IsSelected="False" Location="Body" Name="sys_domain" ShouldFilterOnChange="False" />
+              <uiisi:OperationEntityField x:TypeArguments="s:DateTimeOffset" ArgumentDirection="In" ArgumentType="s:DateTimeOffset" DataType="DateTimeOffset" Description="Due date" DisplayName="Due date" FormDataType="ExpressionTextBox" IsChildEntityField="False" IsCustomField="False" IsDefault="False" IsDeletable="True" IsHidden="True" IsIdField="False" IsMandatory="False" IsPriority="False" IsSelected="False" Location="Body" Mask="yyyy-MM-dd'T'HH:mm:sszzz" Name="due_date" ShouldFilterOnChange="False" />
+              <uiisi:OperationEntityField x:TypeArguments="x:String" ArgumentDirection="In" ArgumentType="x:String" DataType="String" Description="Employee ID" DisplayName="Employee ID" FormDataType="ExpressionTextBox" IsChildEntityField="False" IsCustomField="True" IsDefault="False" IsDeletable="True" IsHidden="True" IsIdField="False" IsMandatory="False" IsPriority="False" IsSelected="False" Location="Body" Name="u_string_3" ShouldFilterOnChange="False" />
+              <uiisi:OperationEntityField x:TypeArguments="s:DateTimeOffset" ArgumentDirection="In" ArgumentType="s:DateTimeOffset" DataType="DateTimeOffset" Description="Expected start" DisplayName="Expected start" FormDataType="ExpressionTextBox" IsChildEntityField="False" IsCustomField="False" IsDefault="False" IsDeletable="True" IsHidden="True" IsIdField="False" IsMandatory="False" IsPriority="False" IsSelected="False" Location="Body" Mask="yyyy-MM-dd'T'HH:mm:sszzz" Name="expected_start" ShouldFilterOnChange="False" />
+              <uiisi:OperationEntityField x:TypeArguments="x:String" ArgumentDirection="In" ArgumentType="x:String" DataType="String" Description="First Name" DisplayName="First Name" FormDataType="ExpressionTextBox" IsChildEntityField="False" IsCustomField="True" IsDefault="False" IsDeletable="True" IsHidden="True" IsIdField="False" IsMandatory="False" IsPriority="False" IsSelected="False" Location="Body" Name="u_string_4" ShouldFilterOnChange="False" />
+              <uiisi:OperationEntityField x:TypeArguments="s:DateTimeOffset" ArgumentDirection="In" ArgumentType="s:DateTimeOffset" DataType="DateTimeOffset" Description="Follow up" DisplayName="Follow up" FormDataType="ExpressionTextBox" IsChildEntityField="False" IsCustomField="False" IsDefault="False" IsDeletable="True" IsHidden="True" IsIdField="False" IsMandatory="False" IsPriority="False" IsSelected="False" Location="Body" Mask="yyyy-MM-dd'T'HH:mm:sszzz" Name="follow_up" ShouldFilterOnChange="False" />
+              <uiisi:OperationEntityField x:TypeArguments="x:String" ArgumentDirection="In" ArgumentType="x:String" DataType="String" Description="Future Div" DisplayName="Future Div" FormDataType="ExpressionTextBox" IsChildEntityField="False" IsCustomField="True" IsDefault="False" IsDeletable="True" IsHidden="True" IsIdField="False" IsMandatory="False" IsPriority="False" IsSelected="False" Location="Body" Name="u_string_7" ShouldFilterOnChange="False" />
+              <uiisi:OperationEntityField x:TypeArguments="x:String" ArgumentDirection="In" ArgumentType="x:String" DataType="String" Description="Group list Value" DisplayName="Group list" FormDataType="ExpressionTextBox" IsChildEntityField="False" IsCustomField="False" IsDefault="False" IsDeletable="True" IsHidden="True" IsIdField="False" IsMandatory="False" IsPriority="False" IsSelected="False" Location="Body" Name="group_list" ShouldFilterOnChange="False" />
+              <uiisi:OperationEntityField x:TypeArguments="x:Int32" ArgumentDirection="In" ArgumentType="x:Int32" DataType="Int32" Description="Impact" DisplayName="Impact" FormDataType="ExpressionTextBox" IsChildEntityField="False" IsCustomField="False" IsDefault="False" IsDeletable="True" IsHidden="True" IsIdField="False" IsMandatory="False" IsPriority="False" IsSelected="False" Location="Body" Name="impact" ShouldFilterOnChange="False" />
+              <uiisi:OperationEntityField x:TypeArguments="x:Int32" ArgumentDirection="In" ArgumentType="x:Int32" DataType="Int32" Description="Incident state" DisplayName="Incident state" FormDataType="ExpressionTextBox" IsChildEntityField="False" IsCustomField="False" IsDefault="False" IsDeletable="True" IsHidden="True" IsIdField="False" IsMandatory="False" IsPriority="False" IsSelected="False" Location="Body" Name="incident_state" ShouldFilterOnChange="False" />
+              <uiisi:OperationEntityField x:TypeArguments="x:String" ArgumentDirection="In" ArgumentType="x:String" DataType="String" Description="Job Titile" DisplayName="Job Titile" FormDataType="ExpressionTextBox" IsChildEntityField="False" IsCustomField="True" IsDefault="False" IsDeletable="True" IsHidden="True" IsIdField="False" IsMandatory="False" IsPriority="False" IsSelected="False" Location="Body" Name="u_string_8" ShouldFilterOnChange="False" />
+              <uiisi:OperationEntityField x:TypeArguments="x:String" ArgumentDirection="In" ArgumentType="x:String" DataType="String" Description="Knowledge" DisplayName="Knowledge" FormDataType="ExpressionTextBox" IsChildEntityField="False" IsCustomField="False" IsDefault="False" IsDeletable="True" IsHidden="True" IsIdField="False" IsMandatory="False" IsPriority="False" IsSelected="False" Location="Body" Name="knowledge" ShouldFilterOnChange="False" />
+              <uiisi:OperationEntityField x:TypeArguments="x:String" ArgumentDirection="In" ArgumentType="x:String" DataType="String" Description="Last Name" DisplayName="Last Name" FormDataType="ExpressionTextBox" IsChildEntityField="False" IsCustomField="True" IsDefault="False" IsDeletable="True" IsHidden="True" IsIdField="False" IsMandatory="False" IsPriority="False" IsSelected="False" Location="Body" Name="u_string_5" ShouldFilterOnChange="False" />
+              <uiisi:OperationEntityField x:TypeArguments="x:String" ArgumentDirection="In" ArgumentType="x:String" DataType="String" Description="Location Value" DisplayName="Location" FormDataType="ExpressionTextBox" IsChildEntityField="False" IsCustomField="False" IsDefault="False" IsDeletable="True" IsHidden="True" IsIdField="False" IsMandatory="False" IsPriority="False" IsSelected="False" Location="Body" Name="location" ShouldFilterOnChange="False" />
+              <uiisi:OperationEntityField x:TypeArguments="x:String" ArgumentDirection="In" ArgumentType="x:String" DataType="String" Description="Made SLA" DisplayName="Made SLA" FormDataType="ExpressionTextBox" IsChildEntityField="False" IsCustomField="False" IsDefault="False" IsDeletable="True" IsHidden="True" IsIdField="False" IsMandatory="False" IsPriority="False" IsSelected="False" Location="Body" Name="made_sla" ShouldFilterOnChange="False" />
+              <uiisi:OperationEntityField x:TypeArguments="x:String" ArgumentDirection="In" ArgumentType="x:String" DataType="String" Description="Manager Full Name" DisplayName="Manager Full Name" FormDataType="ExpressionTextBox" IsChildEntityField="False" IsCustomField="True" IsDefault="False" IsDeletable="True" IsHidden="True" IsIdField="False" IsMandatory="False" IsPriority="False" IsSelected="False" Location="Body" Name="u_string_9" ShouldFilterOnChange="False" />
+              <uiisi:OperationEntityField x:TypeArguments="x:String" ArgumentDirection="In" ArgumentType="x:String" DataType="String" Description="Manager Name" DisplayName="Manager Name" FormDataType="ExpressionTextBox" IsChildEntityField="False" IsCustomField="True" IsDefault="False" IsDeletable="True" IsHidden="True" IsIdField="False" IsMandatory="False" IsPriority="False" IsSelected="False" Location="Body" Name="u_manager_name" ShouldFilterOnChange="False" />
+              <uiisi:OperationEntityField x:TypeArguments="x:String" ArgumentDirection="In" ArgumentType="x:String" DataType="String" Description="Member of" DisplayName="Member of" FormDataType="ExpressionTextBox" IsChildEntityField="False" IsCustomField="True" IsDefault="False" IsDeletable="True" IsHidden="True" IsIdField="False" IsMandatory="False" IsPriority="False" IsSelected="False" Location="Body" Name="u_choice_10" ShouldFilterOnChange="False" />
+              <uiisi:OperationEntityField x:TypeArguments="x:Int32" ArgumentDirection="In" ArgumentType="x:Int32" DataType="Int32" Description="Notify" DisplayName="Notify" FormDataType="ExpressionTextBox" IsChildEntityField="False" IsCustomField="False" IsDefault="False" IsDeletable="True" IsHidden="True" IsIdField="False" IsMandatory="False" IsPriority="False" IsSelected="False" Location="Body" Name="notify" ShouldFilterOnChange="False" />
+              <uiisi:OperationEntityField x:TypeArguments="x:String" ArgumentDirection="In" ArgumentType="x:String" DataType="String" Description="Number" DisplayName="Number" FormDataType="ExpressionTextBox" IsChildEntityField="False" IsCustomField="False" IsDefault="False" IsDeletable="True" IsHidden="True" IsIdField="False" IsMandatory="False" IsPriority="False" IsSelected="False" Location="Body" Name="number" ShouldFilterOnChange="False" />
+              <uiisi:OperationEntityField x:TypeArguments="x:Int32" ArgumentDirection="In" ArgumentType="x:Int32" DataType="Int32" Description="On hold reason" DisplayName="On hold reason" FormDataType="ExpressionTextBox" IsChildEntityField="False" IsCustomField="False" IsDefault="False" IsDeletable="True" IsHidden="True" IsIdField="False" IsMandatory="False" IsPriority="False" IsSelected="False" Location="Body" Name="hold_reason" ShouldFilterOnChange="False" />
+              <uiisi:OperationEntityField x:TypeArguments="s:DateTimeOffset" Description="{x:Null}" ArgumentDirection="In" ArgumentType="s:DateTimeOffset" DataType="DateTimeOffset" DisplayName="Opened at" FormDataType="ExpressionTextBox" IsChildEntityField="False" IsCustomField="False" IsDefault="False" IsDeletable="True" IsHidden="True" IsIdField="False" IsMandatory="False" IsPriority="False" IsSelected="False" Location="Body" Mask="yyyy-MM-dd HH:mm:ss" Name="opened_at" Order="1" ShouldFilterOnChange="False" />
+              <uiisi:OperationEntityField x:TypeArguments="x:String" ArgumentDirection="In" ArgumentType="x:String" DataType="String" Description="Opened by Value" DisplayName="Opened by" FormDataType="ExpressionTextBox" IsChildEntityField="False" IsCustomField="False" IsDefault="False" IsDeletable="True" IsHidden="True" IsIdField="False" IsMandatory="False" IsPriority="False" IsSelected="False" Location="Body" Name="opened_by" ShouldFilterOnChange="False" />
+              <uiisi:OperationEntityField x:TypeArguments="x:Int32" ArgumentDirection="In" ArgumentType="x:Int32" DataType="Int32" Description="Order" DisplayName="Order" FormDataType="ExpressionTextBox" IsChildEntityField="False" IsCustomField="False" IsDefault="False" IsDeletable="True" IsHidden="True" IsIdField="False" IsMandatory="False" IsPriority="False" IsSelected="False" Location="Body" Name="order" ShouldFilterOnChange="False" />
+              <uiisi:OperationEntityField x:TypeArguments="x:String" ArgumentDirection="In" ArgumentType="x:String" DataType="String" Description="Origin table" DisplayName="Origin table" FormDataType="ExpressionTextBox" IsChildEntityField="False" IsCustomField="False" IsDefault="False" IsDeletable="True" IsHidden="True" IsIdField="False" IsMandatory="False" IsPriority="False" IsSelected="False" Location="Body" Name="origin_table" ShouldFilterOnChange="False" />
+              <uiisi:OperationEntityField x:TypeArguments="x:String" ArgumentDirection="In" ArgumentType="x:String" DataType="String" Description="Origin Value" DisplayName="Origin" FormDataType="ExpressionTextBox" IsChildEntityField="False" IsCustomField="False" IsDefault="False" IsDeletable="True" IsHidden="True" IsIdField="False" IsMandatory="False" IsPriority="False" IsSelected="False" Location="Body" Name="origin_id" ShouldFilterOnChange="False" />
+              <uiisi:OperationEntityField x:TypeArguments="x:String" ArgumentDirection="In" ArgumentType="x:String" DataType="String" Description="OU" DisplayName="OU" FormDataType="ExpressionTextBox" IsChildEntityField="False" IsCustomField="True" IsDefault="False" IsDeletable="True" IsHidden="True" IsIdField="False" IsMandatory="False" IsPriority="False" IsSelected="False" Location="Body" Name="u_choice_3" ShouldFilterOnChange="False" />
+              <uiisi:OperationEntityField x:TypeArguments="x:String" ArgumentDirection="In" ArgumentType="x:String" DataType="String" Description="Parent Incident Value" DisplayName="Parent Incident" FormDataType="ExpressionTextBox" IsChildEntityField="False" IsCustomField="False" IsDefault="False" IsDeletable="True" IsHidden="True" IsIdField="False" IsMandatory="False" IsPriority="False" IsSelected="False" Location="Body" Name="parent_incident" ShouldFilterOnChange="False" />
+              <uiisi:OperationEntityField x:TypeArguments="x:String" ArgumentDirection="In" ArgumentType="x:String" DataType="String" Description="Parent Value" DisplayName="Parent" FormDataType="ExpressionTextBox" IsChildEntityField="False" IsCustomField="False" IsDefault="False" IsDeletable="True" IsHidden="True" IsIdField="False" IsMandatory="False" IsPriority="False" IsSelected="False" Location="Body" Name="parent" ShouldFilterOnChange="False" />
+              <uiisi:OperationEntityField x:TypeArguments="x:String" ArgumentDirection="In" ArgumentType="x:String" DataType="String" Description="Phone" DisplayName="Phone" FormDataType="ExpressionTextBox" IsChildEntityField="False" IsCustomField="True" IsDefault="False" IsDeletable="True" IsHidden="True" IsIdField="False" IsMandatory="False" IsPriority="False" IsSelected="False" Location="Body" Name="u_string_1" ShouldFilterOnChange="False" />
+              <uiisi:OperationEntityField x:TypeArguments="x:Int32" ArgumentDirection="In" ArgumentType="x:Int32" DataType="Int32" Description="Priority" DisplayName="Priority" FormDataType="ExpressionTextBox" IsChildEntityField="False" IsCustomField="False" IsDefault="False" IsDeletable="True" IsHidden="True" IsIdField="False" IsMandatory="False" IsPriority="False" IsSelected="False" Location="Body" Name="priority" ShouldFilterOnChange="False" />
+              <uiisi:OperationEntityField x:TypeArguments="x:String" ArgumentDirection="In" ArgumentType="x:String" DataType="String" Description="Probable cause" DisplayName="Probable cause" FormDataType="ExpressionTextBox" IsChildEntityField="False" IsCustomField="False" IsDefault="False" IsDeletable="True" IsHidden="True" IsIdField="False" IsMandatory="False" IsPriority="False" IsSelected="False" Location="Body" Name="cause" ShouldFilterOnChange="False" />
+              <uiisi:OperationEntityField x:TypeArguments="x:String" ArgumentDirection="In" ArgumentType="x:String" DataType="String" Description="Problem Value" DisplayName="Problem" FormDataType="ExpressionTextBox" IsChildEntityField="False" IsCustomField="False" IsDefault="False" IsDeletable="True" IsHidden="True" IsIdField="False" IsMandatory="False" IsPriority="False" IsSelected="False" Location="Body" Name="problem_id" ShouldFilterOnChange="False" />
+              <uiisi:OperationEntityField x:TypeArguments="x:String" ArgumentDirection="In" ArgumentType="x:String" DataType="String" Description="Promotion" DisplayName="Promotion" FormDataType="ExpressionTextBox" IsChildEntityField="False" IsCustomField="True" IsDefault="False" IsDeletable="True" IsHidden="True" IsIdField="False" IsMandatory="False" IsPriority="False" IsSelected="False" Location="Body" Name="u_choice_1" ShouldFilterOnChange="False" />
+              <uiisi:OperationEntityField x:TypeArguments="x:String" ArgumentDirection="In" ArgumentType="x:String" DataType="String" Description="Rank" DisplayName="Rank" FormDataType="ExpressionTextBox" IsChildEntityField="False" IsCustomField="True" IsDefault="False" IsDeletable="True" IsHidden="True" IsIdField="False" IsMandatory="False" IsPriority="False" IsSelected="False" Location="Body" Name="u_choice_2" ShouldFilterOnChange="False" />
+              <uiisi:OperationEntityField x:TypeArguments="x:Int32" ArgumentDirection="In" ArgumentType="x:Int32" DataType="Int32" Description="Reassignment count" DisplayName="Reassignment count" FormDataType="ExpressionTextBox" IsChildEntityField="False" IsCustomField="False" IsDefault="False" IsDeletable="True" IsHidden="True" IsIdField="False" IsMandatory="False" IsPriority="False" IsSelected="False" Location="Body" Name="reassignment_count" ShouldFilterOnChange="False" />
+              <uiisi:OperationEntityField x:TypeArguments="x:String" ArgumentDirection="In" ArgumentType="x:String" DataType="String" Description="Rejection goto Value" DisplayName="Rejection goto" FormDataType="ExpressionTextBox" IsChildEntityField="False" IsCustomField="False" IsDefault="False" IsDeletable="True" IsHidden="True" IsIdField="False" IsMandatory="False" IsPriority="False" IsSelected="False" Location="Body" Name="rejection_goto" ShouldFilterOnChange="False" />
+              <uiisi:OperationEntityField x:TypeArguments="x:Int32" ArgumentDirection="In" ArgumentType="x:Int32" DataType="Int32" Description="Reopen count" DisplayName="Reopen count" FormDataType="ExpressionTextBox" IsChildEntityField="False" IsCustomField="False" IsDefault="False" IsDeletable="True" IsHidden="True" IsIdField="False" IsMandatory="False" IsPriority="False" IsSelected="False" Location="Body" Name="reopen_count" ShouldFilterOnChange="False" />
+              <uiisi:OperationEntityField x:TypeArguments="x:String" x:Name="__ReferenceID2" ArgumentDirection="In" ArgumentType="x:String" DataType="String" Description="Resolution code to be used in reporting" DisplayName="Resolution code" FormDataType="ExpressionTextBox" InArgumentValue="[in_ResolutionCode]" IsChildEntityField="False" IsCustomField="False" IsDefault="False" IsDeletable="True" IsHidden="False" IsIdField="False" IsMandatory="False" IsPriority="False" IsSelected="False" Location="Body" Name="close_code" Order="1" ShouldFilterOnChange="False">
+                <uiisi:OperationEntityField.ArgumentValue>
+                  <InArgument x:TypeArguments="x:String">[in_ResolutionCode]</InArgument>
+                </uiisi:OperationEntityField.ArgumentValue>
+                <uiisi:OperationEntityField.Metadata>
+                  <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                    <x:Boolean x:Key="IsPermanentlyHidden">False</x:Boolean>
+                  </scg:Dictionary>
+                </uiisi:OperationEntityField.Metadata>
+                <uiisi:OperationEntityField.Value>
+                  <VisualBasicValue x:TypeArguments="x:String">[in_ResolutionCode]</VisualBasicValue>
+                </uiisi:OperationEntityField.Value>
+              </uiisi:OperationEntityField>
+              <uiisi:OperationEntityField x:TypeArguments="x:String" x:Name="__ReferenceID3" ArgumentDirection="In" ArgumentType="x:String" DataType="String" Description="Resolution notes for the incident" DisplayName="Resolution notes" FormDataType="ExpressionTextBox" InArgumentValue="[in_ResolutionNotes]" IsChildEntityField="False" IsCustomField="False" IsDefault="False" IsDeletable="True" IsHidden="False" IsIdField="False" IsMandatory="False" IsPriority="False" IsSelected="False" Location="Body" Name="close_notes" Order="1" ShouldFilterOnChange="False">
+                <uiisi:OperationEntityField.ArgumentValue>
+                  <InArgument x:TypeArguments="x:String">[in_ResolutionNotes]</InArgument>
+                </uiisi:OperationEntityField.ArgumentValue>
+                <uiisi:OperationEntityField.Metadata>
+                  <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                    <x:Boolean x:Key="IsPermanentlyHidden">False</x:Boolean>
+                  </scg:Dictionary>
+                </uiisi:OperationEntityField.Metadata>
+                <uiisi:OperationEntityField.Value>
+                  <VisualBasicValue x:TypeArguments="x:String">[in_ResolutionNotes]</VisualBasicValue>
+                </uiisi:OperationEntityField.Value>
+              </uiisi:OperationEntityField>
+              <uiisi:OperationEntityField x:TypeArguments="x:String" ArgumentDirection="In" ArgumentType="x:String" DataType="String" Description="Resolved by Value" DisplayName="Resolved by" FormDataType="ExpressionTextBox" IsChildEntityField="False" IsCustomField="False" IsDefault="False" IsDeletable="True" IsHidden="True" IsIdField="False" IsMandatory="False" IsPriority="False" IsSelected="False" Location="Body" Name="resolved_by" ShouldFilterOnChange="False" />
+              <uiisi:OperationEntityField x:TypeArguments="s:DateTimeOffset" x:Name="__ReferenceID4" ArgumentDirection="In" ArgumentType="s:DateTimeOffset" DataType="DateTimeOffset" Description="Resolution date/time of the incident" DisplayName="Resolved" FormDataType="ExpressionTextBox" IsChildEntityField="False" IsCustomField="False" IsDefault="False" IsDeletable="True" IsHidden="False" IsIdField="False" IsMandatory="False" IsPriority="False" IsSelected="False" Location="Body" Mask="yyyy-MM-dd HH:mm:ss" Name="closed_at" Order="1" ShouldFilterOnChange="False">
+                <uiisi:OperationEntityField.Metadata>
+                  <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                    <x:Boolean x:Key="IsPermanentlyHidden">False</x:Boolean>
+                  </scg:Dictionary>
+                </uiisi:OperationEntityField.Metadata>
+              </uiisi:OperationEntityField>
+              <uiisi:OperationEntityField x:TypeArguments="s:DateTimeOffset" ArgumentDirection="In" ArgumentType="s:DateTimeOffset" DataType="DateTimeOffset" Description="Resolved" DisplayName="Resolved" FormDataType="ExpressionTextBox" IsChildEntityField="False" IsCustomField="False" IsDefault="False" IsDeletable="True" IsHidden="True" IsIdField="False" IsMandatory="False" IsPriority="False" IsSelected="False" Location="Body" Mask="yyyy-MM-dd'T'HH:mm:sszzz" Name="resolved_at" ShouldFilterOnChange="False" />
+              <uiisi:OperationEntityField x:TypeArguments="x:String" ArgumentDirection="In" ArgumentType="x:String" DataType="String" Description="Service offering Value" DisplayName="Service offering" FormDataType="ExpressionTextBox" IsChildEntityField="False" IsCustomField="False" IsDefault="False" IsDeletable="True" IsHidden="True" IsIdField="False" IsMandatory="False" IsPriority="False" IsSelected="False" Location="Body" Name="service_offering" ShouldFilterOnChange="False" />
+              <uiisi:OperationEntityField x:TypeArguments="x:String" ArgumentDirection="In" ArgumentType="x:String" DataType="String" Description="Service Value" DisplayName="Service" FormDataType="ExpressionTextBox" IsChildEntityField="False" IsCustomField="False" IsDefault="False" IsDeletable="True" IsHidden="True" IsIdField="False" IsMandatory="False" IsPriority="False" IsSelected="False" Location="Body" Name="business_service" ShouldFilterOnChange="False" />
+              <uiisi:OperationEntityField x:TypeArguments="x:Int32" ArgumentDirection="In" ArgumentType="x:Int32" DataType="Int32" Description="Severity" DisplayName="Severity" FormDataType="ExpressionTextBox" IsChildEntityField="False" IsCustomField="False" IsDefault="False" IsDeletable="True" IsHidden="True" IsIdField="False" IsMandatory="False" IsPriority="False" IsSelected="False" Location="Body" Name="severity" ShouldFilterOnChange="False" />
+              <uiisi:OperationEntityField x:TypeArguments="x:String" x:Name="__ReferenceID5" ArgumentDirection="In" ArgumentType="x:String" DataType="String" Description="Describes the impacted behavior of this incident" DisplayName="Short description" FormDataType="ExpressionTextBox" IsChildEntityField="False" IsCustomField="False" IsDefault="False" IsDeletable="True" IsHidden="False" IsIdField="False" IsMandatory="False" IsPriority="False" IsSelected="False" Location="Body" Name="short_description" Order="1" ShouldFilterOnChange="False">
+                <uiisi:OperationEntityField.Metadata>
+                  <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                    <x:Boolean x:Key="IsPermanentlyHidden">False</x:Boolean>
+                  </scg:Dictionary>
+                </uiisi:OperationEntityField.Metadata>
+              </uiisi:OperationEntityField>
+              <uiisi:OperationEntityField x:TypeArguments="x:String" ArgumentDirection="In" ArgumentType="x:String" DataType="String" Description="Skills Value" DisplayName="Skills" FormDataType="ExpressionTextBox" IsChildEntityField="False" IsCustomField="False" IsDefault="False" IsDeletable="True" IsHidden="True" IsIdField="False" IsMandatory="False" IsPriority="False" IsSelected="False" Location="Body" Name="skills" ShouldFilterOnChange="False" />
+              <uiisi:OperationEntityField x:TypeArguments="x:String" ArgumentDirection="In" ArgumentType="x:String" DataType="String" Description="SLA due" DisplayName="SLA due" FormDataType="ExpressionTextBox" IsChildEntityField="False" IsCustomField="False" IsDefault="False" IsDeletable="True" IsHidden="True" IsIdField="False" IsMandatory="False" IsPriority="False" IsSelected="False" Location="Body" Name="sla_due" ShouldFilterOnChange="False" />
+              <uiisi:OperationEntityField x:TypeArguments="x:String" x:Name="__ReferenceID6" ArgumentDirection="In" ArgumentType="x:String" DataType="String" Description="Status of the incident" DisplayName="State" FormDataType="ExpressionTextBox" InArgumentValue="[in_IncidentState]" IsChildEntityField="False" IsCustomField="False" IsDefault="False" IsDeletable="True" IsHidden="False" IsIdField="False" IsMandatory="False" IsPriority="False" IsSelected="False" Location="Body" Name="state" Order="1" ShouldFilterOnChange="False">
+                <uiisi:OperationEntityField.ArgumentValue>
+                  <InArgument x:TypeArguments="x:String">[in_IncidentState]</InArgument>
+                </uiisi:OperationEntityField.ArgumentValue>
+                <uiisi:OperationEntityField.Metadata>
+                  <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                    <x:Boolean x:Key="IsPermanentlyHidden">False</x:Boolean>
+                  </scg:Dictionary>
+                </uiisi:OperationEntityField.Metadata>
+                <uiisi:OperationEntityField.Value>
+                  <VisualBasicValue x:TypeArguments="x:String">[in_IncidentState]</VisualBasicValue>
+                </uiisi:OperationEntityField.Value>
+              </uiisi:OperationEntityField>
+              <uiisi:OperationEntityField x:TypeArguments="x:String" ArgumentDirection="In" ArgumentType="x:String" DataType="String" Description="Status2" DisplayName="Status2" FormDataType="ExpressionTextBox" IsChildEntityField="False" IsCustomField="True" IsDefault="False" IsDeletable="True" IsHidden="True" IsIdField="False" IsMandatory="False" IsPriority="False" IsSelected="False" Location="Body" Name="u_status2" ShouldFilterOnChange="False" />
+              <uiisi:OperationEntityField x:TypeArguments="x:String" ArgumentDirection="In" ArgumentType="x:String" DataType="String" Description="Subcategory" DisplayName="Subcategory" FormDataType="ExpressionTextBox" IsChildEntityField="False" IsCustomField="False" IsDefault="False" IsDeletable="True" IsHidden="True" IsIdField="False" IsMandatory="False" IsPriority="False" IsSelected="False" Location="Body" Name="subcategory" ShouldFilterOnChange="False" />
+              <uiisi:OperationEntityField x:TypeArguments="x:String" ArgumentDirection="In" ArgumentType="x:String" DataType="String" Description="Created by" DisplayName="Sys created by" FormDataType="ExpressionTextBox" IsChildEntityField="False" IsCustomField="False" IsDefault="False" IsDeletable="True" IsHidden="True" IsIdField="False" IsMandatory="False" IsPriority="False" IsSelected="False" Location="Body" Name="sys_created_by" ShouldFilterOnChange="False" />
+              <uiisi:OperationEntityField x:TypeArguments="s:DateTimeOffset" ArgumentDirection="In" ArgumentType="s:DateTimeOffset" DataType="DateTimeOffset" Description="Created" DisplayName="Sys created on" FormDataType="ExpressionTextBox" IsChildEntityField="False" IsCustomField="False" IsDefault="False" IsDeletable="True" IsHidden="True" IsIdField="False" IsMandatory="False" IsPriority="False" IsSelected="False" Location="Body" Mask="yyyy-MM-dd'T'HH:mm:sszzz" Name="sys_created_on" ShouldFilterOnChange="False" />
+              <uiisi:OperationEntityField x:TypeArguments="x:Int32" ArgumentDirection="In" ArgumentType="x:Int32" DataType="Int32" Description="Updates" DisplayName="Sys mod count" FormDataType="ExpressionTextBox" IsChildEntityField="False" IsCustomField="False" IsDefault="False" IsDeletable="True" IsHidden="True" IsIdField="False" IsMandatory="False" IsPriority="False" IsSelected="False" Location="Body" Name="sys_mod_count" ShouldFilterOnChange="False" />
+              <uiisi:OperationEntityField x:TypeArguments="x:String" ArgumentDirection="In" ArgumentType="x:String" DataType="String" Description="Updated by" DisplayName="Sys updated by" FormDataType="ExpressionTextBox" IsChildEntityField="False" IsCustomField="False" IsDefault="False" IsDeletable="True" IsHidden="True" IsIdField="False" IsMandatory="False" IsPriority="False" IsSelected="False" Location="Body" Name="sys_updated_by" ShouldFilterOnChange="False" />
+              <uiisi:OperationEntityField x:TypeArguments="s:DateTimeOffset" ArgumentDirection="In" ArgumentType="s:DateTimeOffset" DataType="DateTimeOffset" Description="Updated" DisplayName="Sys updated on" FormDataType="ExpressionTextBox" IsChildEntityField="False" IsCustomField="False" IsDefault="False" IsDeletable="True" IsHidden="True" IsIdField="False" IsMandatory="False" IsPriority="False" IsSelected="False" Location="Body" Mask="yyyy-MM-dd'T'HH:mm:sszzz" Name="sys_updated_on" ShouldFilterOnChange="False" />
+              <uiisi:OperationEntityField x:TypeArguments="x:Boolean" ArgumentDirection="In" ArgumentType="x:Boolean" DataType="Boolean" Description="ServiceNow REST API stores the date-time in the UTC time zone unless you specify sysparm_input_display_value to true.&#xA;&#xA;If you specify sysparm_input_display_value to true, then the date-time is stored exactly what you sent in the request.&#xA;&#xA;If not, the date-time sent via REST API is converted to the UTC time based on the User's timezone(User initiating the REST call)&#xA;&#xA;If the User's time zone is not set then the system time is taken for reference to convert to UTC." DisplayName="Sysparm_input_display_value" FormDataType="ExpressionTextBox" IsChildEntityField="False" IsCustomField="False" IsDefault="False" IsDeletable="True" IsHidden="True" IsIdField="False" IsMandatory="False" IsParameter="True" IsPriority="False" IsSelected="False" Location="Query" Name="sysparm_input_display_value" ShouldFilterOnChange="False" />
+              <uiisi:OperationEntityField x:TypeArguments="x:String" ArgumentDirection="In" ArgumentType="x:String" DataType="String" Description="Task type" DisplayName="Task type" FormDataType="ExpressionTextBox" IsChildEntityField="False" IsCustomField="False" IsDefault="False" IsDeletable="True" IsHidden="True" IsIdField="False" IsMandatory="False" IsPriority="False" IsSelected="False" Location="Body" Name="sys_class_name" ShouldFilterOnChange="False" />
+              <uiisi:OperationEntityField x:TypeArguments="x:String" ArgumentDirection="In" ArgumentType="x:String" DataType="String" Description="Time worked" DisplayName="Time worked" FormDataType="ExpressionTextBox" IsChildEntityField="False" IsCustomField="False" IsDefault="False" IsDeletable="True" IsHidden="True" IsIdField="False" IsMandatory="False" IsPriority="False" IsSelected="False" Location="Body" Name="time_worked" ShouldFilterOnChange="False" />
+              <uiisi:OperationEntityField x:TypeArguments="x:String" ArgumentDirection="In" ArgumentType="x:String" DataType="String" Description="Universal Request Value" DisplayName="Universal Request" FormDataType="ExpressionTextBox" IsChildEntityField="False" IsCustomField="False" IsDefault="False" IsDeletable="True" IsHidden="True" IsIdField="False" IsMandatory="False" IsPriority="False" IsSelected="False" Location="Body" Name="universal_request" ShouldFilterOnChange="False" />
+              <uiisi:OperationEntityField x:TypeArguments="x:String" ArgumentDirection="In" ArgumentType="x:String" DataType="String" Description="Upon approval" DisplayName="Upon approval" FormDataType="ExpressionTextBox" IsChildEntityField="False" IsCustomField="False" IsDefault="False" IsDeletable="True" IsHidden="True" IsIdField="False" IsMandatory="False" IsPriority="False" IsSelected="False" Location="Body" Name="upon_approval" ShouldFilterOnChange="False" />
+              <uiisi:OperationEntityField x:TypeArguments="x:String" ArgumentDirection="In" ArgumentType="x:String" DataType="String" Description="Upon reject" DisplayName="Upon reject" FormDataType="ExpressionTextBox" IsChildEntityField="False" IsCustomField="False" IsDefault="False" IsDeletable="True" IsHidden="True" IsIdField="False" IsMandatory="False" IsPriority="False" IsSelected="False" Location="Body" Name="upon_reject" ShouldFilterOnChange="False" />
+              <uiisi:OperationEntityField x:TypeArguments="x:String" x:Name="__ReferenceID7" ArgumentDirection="In" ArgumentType="x:String" DataType="String" Description="The extent to which resolution of an incident can bear delay" DisplayName="Urgency" FormDataType="ExpressionTextBox" IsChildEntityField="False" IsCustomField="False" IsDefault="False" IsDeletable="True" IsHidden="False" IsIdField="False" IsMandatory="False" IsPriority="False" IsSelected="False" Location="Body" Name="urgency" Order="1" ShouldFilterOnChange="False">
+                <uiisi:OperationEntityField.Metadata>
+                  <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                    <x:Boolean x:Key="IsPermanentlyHidden">False</x:Boolean>
+                  </scg:Dictionary>
+                </uiisi:OperationEntityField.Metadata>
+              </uiisi:OperationEntityField>
+              <uiisi:OperationEntityField x:TypeArguments="x:String" ArgumentDirection="In" ArgumentType="x:String" DataType="String" Description="User input" DisplayName="User input" FormDataType="ExpressionTextBox" IsChildEntityField="False" IsCustomField="False" IsDefault="False" IsDeletable="True" IsHidden="True" IsIdField="False" IsMandatory="False" IsPriority="False" IsSelected="False" Location="Body" Name="user_input" ShouldFilterOnChange="False" />
+              <uiisi:OperationEntityField x:TypeArguments="x:String" ArgumentDirection="In" ArgumentType="x:String" DataType="String" Description="Variables" DisplayName="Variables" FormDataType="ExpressionTextBox" IsChildEntityField="False" IsCustomField="False" IsDefault="False" IsDeletable="True" IsHidden="True" IsIdField="False" IsMandatory="False" IsPriority="False" IsSelected="False" Location="Body" Name="variables" ShouldFilterOnChange="False" />
+              <uiisi:OperationEntityField x:TypeArguments="x:String" ArgumentDirection="In" ArgumentType="x:String" DataType="String" Description="Watch list Value" DisplayName="Watch list" FormDataType="ExpressionTextBox" IsChildEntityField="False" IsCustomField="False" IsDefault="False" IsDeletable="True" IsHidden="True" IsIdField="False" IsMandatory="False" IsPriority="False" IsSelected="False" Location="Body" Name="watch_list" ShouldFilterOnChange="False" />
+              <uiisi:OperationEntityField x:TypeArguments="x:String" ArgumentDirection="In" ArgumentType="x:String" DataType="String" Description="Work notes list Value" DisplayName="Work notes list" FormDataType="ExpressionTextBox" IsChildEntityField="False" IsCustomField="False" IsDefault="False" IsDeletable="True" IsHidden="True" IsIdField="False" IsMandatory="False" IsPriority="False" IsSelected="False" Location="Body" Name="work_notes_list" ShouldFilterOnChange="False" />
+              <uiisi:OperationEntityField x:TypeArguments="x:String" x:Name="__ReferenceID8" ArgumentDirection="In" ArgumentType="x:String" DataType="String" Description="Work notes" DisplayName="Work notes" FormDataType="ExpressionTextBox" InArgumentValue="[in_WorkNotes]" IsChildEntityField="False" IsCustomField="False" IsDefault="False" IsDeletable="True" IsHidden="False" IsIdField="False" IsMandatory="False" IsPriority="False" IsSelected="False" Location="Body" Name="work_notes" ShouldFilterOnChange="False">
+                <uiisi:OperationEntityField.ArgumentValue>
+                  <InArgument x:TypeArguments="x:String">[in_WorkNotes]</InArgument>
+                </uiisi:OperationEntityField.ArgumentValue>
+                <uiisi:OperationEntityField.Value>
+                  <VisualBasicValue x:TypeArguments="x:String">[in_WorkNotes]</VisualBasicValue>
+                </uiisi:OperationEntityField.Value>
+              </uiisi:OperationEntityField>
+              <uiisi:OperationEntityField x:TypeArguments="x:String" ArgumentDirection="In" ArgumentType="x:String" DataType="String" Description="Workflow activity Value" DisplayName="Workflow activity" FormDataType="ExpressionTextBox" IsChildEntityField="False" IsCustomField="False" IsDefault="False" IsDeletable="True" IsHidden="True" IsIdField="False" IsMandatory="False" IsPriority="False" IsSelected="False" Location="Body" Name="wf_activity" ShouldFilterOnChange="False" />
+            </scg:List>
+          </uibi:BusinessEntity.AllFields>
+          <uibi:BusinessEntity.EntityMetadata>
+            <uibi:EntityMetadata Metadata="{x:Reference __ReferenceID0}" DisplayName="Incident" EligibleOperations="4" IsCustomEntity="False" Name="curated_incident" />
+          </uibi:BusinessEntity.EntityMetadata>
+          <uibi:BusinessEntity.Metadata>
+            <scg:Dictionary x:TypeArguments="x:String, x:Object" x:Name="__ReferenceID0">
+              <x:String x:Key="Object">curated_incident</x:String>
+              <x:String x:Key="FullPath">/incident/{incidentId}</x:String>
+              <x:String x:Key="Method">PATCH</x:String>
+              <x:String x:Key="BaseObject">incident</x:String>
+            </scg:Dictionary>
+          </uibi:BusinessEntity.Metadata>
+          <uibi:BusinessEntity.SelectedFields>
+            <scg:List x:TypeArguments="uibi:EntityField" Capacity="8">
+              <x:Reference>__ReferenceID1</x:Reference>
+              <x:Reference>__ReferenceID2</x:Reference>
+              <x:Reference>__ReferenceID3</x:Reference>
+              <x:Reference>__ReferenceID4</x:Reference>
+              <x:Reference>__ReferenceID5</x:Reference>
+              <x:Reference>__ReferenceID6</x:Reference>
+              <x:Reference>__ReferenceID7</x:Reference>
+              <x:Reference>__ReferenceID8</x:Reference>
+            </scg:List>
+          </uibi:BusinessEntity.SelectedFields>
+          <uibi:BusinessEntity.TelemetryProperties>
+            <scg:Dictionary x:TypeArguments="uibi:TelemetryGroup, scg:IDictionary(x:String, x:String)" />
+          </uibi:BusinessEntity.TelemetryProperties>
+        </uibi:BusinessEntity>
+      </usia:UpdateIncident.BusinessEntity>
+      <usia:UpdateIncident.CachedLookupValues>
+        <scg:Dictionary x:TypeArguments="x:String, scg:List(uiisi:LookupValue)" />
+      </usia:UpdateIncident.CachedLookupValues>
+      <usia:UpdateIncident.DesignConnectionRequest>
+        <uiisi:ConnectionParameters AuthType="ElementInstance" ConnectionId="673de01b-a685-4cff-b71f-01eb1e07cdeb" ConnectionName="2023-09-02T18:56:49.386" ConnectorKey="uipath-servicenow-servicenow">
+          <uiisi:ConnectionParameters.TelemetryInfo>
+            <uiisi:TelemetryInfo ActivityPack="UiPath.ServiceNow.IntegrationService.Activities" ActivityPackVersion="5.2.0" Source="StudioDesktop" />
+          </uiisi:ConnectionParameters.TelemetryInfo>
+        </uiisi:ConnectionParameters>
+      </usia:UpdateIncident.DesignConnectionRequest>
+      <usia:UpdateIncident.SelectedFields>
+        <scg:List x:TypeArguments="uibi:EntityField" Capacity="8">
+          <x:Reference>__ReferenceID1</x:Reference>
+          <x:Reference>__ReferenceID2</x:Reference>
+          <x:Reference>__ReferenceID3</x:Reference>
+          <x:Reference>__ReferenceID4</x:Reference>
+          <x:Reference>__ReferenceID5</x:Reference>
+          <x:Reference>__ReferenceID6</x:Reference>
+          <x:Reference>__ReferenceID7</x:Reference>
+          <x:Reference>__ReferenceID8</x:Reference>
+        </scg:List>
+      </usia:UpdateIncident.SelectedFields>
+      <usia:UpdateIncident.TelemetryProperties>
+        <scg:Dictionary x:TypeArguments="uibi:TelemetryGroup, scg:IDictionary(x:String, x:String)" />
+      </usia:UpdateIncident.TelemetryProperties>
+    </usia:UpdateIncident>
+  </Sequence>
+</Activity>

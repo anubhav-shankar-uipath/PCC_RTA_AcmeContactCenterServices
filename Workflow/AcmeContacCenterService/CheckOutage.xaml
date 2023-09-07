@@ -1,0 +1,145 @@
+<Activity mc:Ignorable="sap sap2010" x:Class="RefreshRouter" this:RefreshRouter.in_PinCode="TestCode" xmlns="http://schemas.microsoft.com/netfx/2009/xaml/activities" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:sap="http://schemas.microsoft.com/netfx/2009/xaml/activities/presentation" xmlns:sap2010="http://schemas.microsoft.com/netfx/2010/xaml/activities/presentation" xmlns:scg="clr-namespace:System.Collections.Generic;assembly=System.Private.CoreLib" xmlns:sco="clr-namespace:System.Collections.ObjectModel;assembly=System.Private.CoreLib" xmlns:this="clr-namespace:" xmlns:uix="http://schemas.uipath.com/workflow/activities/uix" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+  <x:Members>
+    <x:Property Name="out_WorkNote" Type="OutArgument(x:String)" />
+    <x:Property Name="in_PinCode" Type="InArgument(x:String)" />
+  </x:Members>
+  <VisualBasic.Settings>
+    <x:Null />
+  </VisualBasic.Settings>
+  <sap:VirtualizedContainerService.HintSize>536,1064</sap:VirtualizedContainerService.HintSize>
+  <sap2010:WorkflowViewState.IdRef>RefreshRouter_1</sap2010:WorkflowViewState.IdRef>
+  <TextExpression.NamespacesForImplementation>
+    <sco:Collection x:TypeArguments="x:String">
+      <x:String>System.Activities</x:String>
+      <x:String>System.Activities.Statements</x:String>
+      <x:String>System.Activities.Expressions</x:String>
+      <x:String>System.Activities.Validation</x:String>
+      <x:String>System.Activities.XamlIntegration</x:String>
+      <x:String>Microsoft.VisualBasic</x:String>
+      <x:String>Microsoft.VisualBasic.Activities</x:String>
+      <x:String>System</x:String>
+      <x:String>System.Collections</x:String>
+      <x:String>System.Collections.Generic</x:String>
+      <x:String>System.Data</x:String>
+      <x:String>System.Diagnostics</x:String>
+      <x:String>System.Drawing</x:String>
+      <x:String>System.IO</x:String>
+      <x:String>System.Linq</x:String>
+      <x:String>System.Net.Mail</x:String>
+      <x:String>System.Xml</x:String>
+      <x:String>System.Xml.Linq</x:String>
+      <x:String>UiPath.Core</x:String>
+      <x:String>UiPath.Core.Activities</x:String>
+      <x:String>System.Windows.Markup</x:String>
+      <x:String>GlobalVariablesNamespace</x:String>
+      <x:String>GlobalConstantsNamespace</x:String>
+      <x:String>UiPath.UIAutomationNext.Enums</x:String>
+      <x:String>UiPath.UIAutomationCore.Contracts</x:String>
+      <x:String>System.Collections.ObjectModel</x:String>
+      <x:String>UiPath.UIAutomationNext.Activities</x:String>
+      <x:String>UiPath.Platform.ObjectLibrary</x:String>
+      <x:String>UiPath.Shared.Activities</x:String>
+      <x:String>UiPath.UIAutomationNext.Contracts</x:String>
+      <x:String>System.Runtime.Serialization</x:String>
+      <x:String>UiPath.UIAutomationNext.Models.CV</x:String>
+      <x:String>System.Reflection</x:String>
+      <x:String>UiPath.Platform.Triggers</x:String>
+      <x:String>System.ComponentModel</x:String>
+      <x:String>UiPath.UIAutomationNext.Activities.Models</x:String>
+    </sco:Collection>
+  </TextExpression.NamespacesForImplementation>
+  <TextExpression.ReferencesForImplementation>
+    <sco:Collection x:TypeArguments="AssemblyReference">
+      <AssemblyReference>System.Activities</AssemblyReference>
+      <AssemblyReference>Microsoft.VisualBasic</AssemblyReference>
+      <AssemblyReference>System.Private.CoreLib</AssemblyReference>
+      <AssemblyReference>System.Data</AssemblyReference>
+      <AssemblyReference>System.Data.Common</AssemblyReference>
+      <AssemblyReference>System.Data.DataSetExtensions</AssemblyReference>
+      <AssemblyReference>System</AssemblyReference>
+      <AssemblyReference>System.Drawing</AssemblyReference>
+      <AssemblyReference>System.Core</AssemblyReference>
+      <AssemblyReference>System.Xml</AssemblyReference>
+      <AssemblyReference>System.Xml.Linq</AssemblyReference>
+      <AssemblyReference>System.Xaml</AssemblyReference>
+      <AssemblyReference>UiPath.System.Activities</AssemblyReference>
+      <AssemblyReference>UiPath.UiAutomation.Activities</AssemblyReference>
+      <AssemblyReference>UiPath.Studio.Constants</AssemblyReference>
+      <AssemblyReference>UiPath.UIAutomationNext</AssemblyReference>
+      <AssemblyReference>UiPath.UIAutomationCore</AssemblyReference>
+      <AssemblyReference>System.ObjectModel</AssemblyReference>
+      <AssemblyReference>UiPath.UIAutomationNext.Activities</AssemblyReference>
+      <AssemblyReference>UiPath.Platform</AssemblyReference>
+      <AssemblyReference>UiPath.WorkflowEvents.Activities</AssemblyReference>
+      <AssemblyReference>UiPath.OCR.Activities</AssemblyReference>
+      <AssemblyReference>System.Private.ServiceModel</AssemblyReference>
+      <AssemblyReference>System.Runtime.Serialization.Formatters</AssemblyReference>
+      <AssemblyReference>System.Private.DataContractSerialization</AssemblyReference>
+      <AssemblyReference>System.Runtime.Serialization.Primitives</AssemblyReference>
+      <AssemblyReference>System.ComponentModel.TypeConverter</AssemblyReference>
+      <AssemblyReference>System.Console</AssemblyReference>
+      <AssemblyReference>System.Configuration.ConfigurationManager</AssemblyReference>
+      <AssemblyReference>System.Security.Permissions</AssemblyReference>
+      <AssemblyReference>System.ComponentModel</AssemblyReference>
+      <AssemblyReference>System.Memory</AssemblyReference>
+      <AssemblyReference>System.Private.Uri</AssemblyReference>
+      <AssemblyReference>System.Reflection.DispatchProxy</AssemblyReference>
+      <AssemblyReference>System.Reflection.TypeExtensions</AssemblyReference>
+      <AssemblyReference>System.Reflection.Metadata</AssemblyReference>
+      <AssemblyReference>System.ComponentModel.EventBasedAsync</AssemblyReference>
+      <AssemblyReference>PresentationFramework</AssemblyReference>
+      <AssemblyReference>WindowsBase</AssemblyReference>
+      <AssemblyReference>Microsoft.Win32.Primitives</AssemblyReference>
+      <AssemblyReference>System.ComponentModel.Primitives</AssemblyReference>
+      <AssemblyReference>UiPath.Workflow</AssemblyReference>
+      <AssemblyReference>System.IO.FileSystem.Watcher</AssemblyReference>
+      <AssemblyReference>System.IO.Packaging</AssemblyReference>
+      <AssemblyReference>System.IO.FileSystem.AccessControl</AssemblyReference>
+      <AssemblyReference>System.IO.FileSystem.DriveInfo</AssemblyReference>
+    </sco:Collection>
+  </TextExpression.ReferencesForImplementation>
+  <Sequence DisplayName="RefreshRouter" sap:VirtualizedContainerService.HintSize="546,999" sap2010:WorkflowViewState.IdRef="Sequence_1">
+    <sap:WorkflowViewStateService.ViewState>
+      <scg:Dictionary x:TypeArguments="x:String, x:Object">
+        <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+      </scg:Dictionary>
+    </sap:WorkflowViewStateService.ViewState>
+    <uix:NApplicationCard AttachMode="ByInstance" DisplayName="Use Browser Edge: Acme Telecom Services" sap:VirtualizedContainerService.HintSize="484,888" sap2010:WorkflowViewState.IdRef="NApplicationCard_1" InteractionMode="DebuggerApi" ScopeGuid="f407fe0c-1510-445e-a3c7-a0be6df8a581" Version="V2">
+      <uix:NApplicationCard.Body>
+        <ActivityAction x:TypeArguments="x:Object">
+          <ActivityAction.Argument>
+            <DelegateInArgument x:TypeArguments="x:Object" Name="WSSessionData" />
+          </ActivityAction.Argument>
+          <Sequence DisplayName="Do" sap:VirtualizedContainerService.HintSize="450,671" sap2010:WorkflowViewState.IdRef="Sequence_2">
+            <Sequence.Variables>
+              <Variable x:TypeArguments="x:String" Name="VoiceStatus" />
+            </Sequence.Variables>
+            <sap:WorkflowViewStateService.ViewState>
+              <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+              </scg:Dictionary>
+            </sap:WorkflowViewStateService.ViewState>
+            <uix:NSetText DisplayName="Set Text 'INPUT pincode'" sap:VirtualizedContainerService.HintSize="388,162" sap2010:WorkflowViewState.IdRef="NSetText_1" ScopeIdentifier="f407fe0c-1510-445e-a3c7-a0be6df8a581" Text="[in_PinCode]" Version="V3">
+              <uix:NSetText.Target>
+                <uix:TargetAnchorable BrowserURL="file:///C:/Users/anubhav.shankar/OneDrive/OneDrive%20-%20UiPath/Enablement/23.4/Demos/Public%20Contact%20Center%20Telecom%20App/ContactCenterServices/WebApp/Customer%20Settings.html" CvElementArea="69, 878, 264, 43" CvTextArea="78, 888, 136, 19" CvTextArgument="Enter Pin Code" CvType="InputBox" DesignTimeRectangle="71, 879, 260, 40" DesignTimeScaleFactor="1.5" ElementType="InputBox" FriendlyName="'INPUT pincode'" FullSelectorArgument="&lt;webctrl id='pincode' tag='INPUT' /&gt;" FuzzySelectorArgument="&lt;webctrl id='pincode' tag='INPUT' type='text' class='' aaname='' /&gt;" Guid="114e4527-8126-42e6-8307-a72452433023" ImageBase64="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" InformativeScreenshot="9209478ff5f46701e490ce79179afa38.png" ScopeSelectorArgument="&lt;html app='msedge.exe' title='Acme Telecom Services' /&gt;" SearchSteps="FuzzySelector" Version="V2" Visibility="Interactive" />
+              </uix:NSetText.Target>
+            </uix:NSetText>
+            <uix:NClick ActivateBefore="True" ClickType="Single" DisplayName="Click 'Check Outages'" sap:VirtualizedContainerService.HintSize="388,157" sap2010:WorkflowViewState.IdRef="NClick_1" KeyModifiers="None" MouseButton="Left" ScopeIdentifier="f407fe0c-1510-445e-a3c7-a0be6df8a581" Version="V3">
+              <uix:NClick.Target>
+                <uix:TargetAnchorable BrowserURL="file:///C:/Users/anubhav.shankar/OneDrive/OneDrive%20-%20UiPath/Enablement/23.4/Demos/Public%20Contact%20Center%20Telecom%20App/ContactCenterServices/WebApp/Customer%20Settings.html" CvElementArea="351, 878, 171, 41" CvTextArea="366, 887, 141, 24" CvTextArgument="Check Outages" CvType="Button" DesignTimeRectangle="353, 880, 168, 38" DesignTimeScaleFactor="1.5" ElementType="Button" FriendlyName="'Check Outages'" FullSelectorArgument="&lt;webctrl id='checkOutagesButton' tag='BUTTON' /&gt;" FuzzySelectorArgument="&lt;webctrl id='checkOutagesButton' tag='BUTTON' type='' class='' aaname='Check Outages' check:innerText='Check Outages' /&gt;" Guid="d481da27-792b-4ee9-9710-8d665c385269" ImageBase64="iVBORw0KGgoAAAANSUhEUgAAAKwAAAAqCAYAAAAu2LAdAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAdVSURBVHhe7ZrPa9tIFMf3j+i/kv+gf8Aeesthbz0sFHwpBNJDDxt6SKGFEnIILCHQgguFBhIIJuBDCITk4EOJD16oweCFBIyFazu2bOnte/NLI2lsy66yjdo38D1EepZGM595852Z/Db9519gsYoiBpZVKBlgO4/WWawHKwaWVSgxsKxCiYFlFUoMLKtQYmBZhRIDyyqUGFhWocTAsgolBpZVKN0jsJvQ36vBtD2AcAKmhO02+Ls70E3Ejxp0tw2jxPX/TR/asn5n7933l5C3UQW/kfju/gCmZ1UYPHb/Zhl1nx6DX7uEgePez677AXbtPfhtX/ZU38OOuoRx+RzGZ23TiQSGDe3PAew23F144jkw8SGoX8vvPrzGgavaY+SB/2rT8duswralV3jXDGw+wG7D+Kvsm/DsI3jJ+48/gt+huz5MP2yb68UHtgSDs4F8RrsGQ0cm9V5dQygiBuC/SN/PJgY2V2B7quPh6zn0HPeFXqiO6zdgqK4VHthnNQjoAQTSmuO+ErWP+PabGvQd9xeLgc0R2C0Yt6g3fJi8dt3X2kHLgHB0mjD6U17TwI7Jn7VkphLFu3V6XvLIg3ITAjUDUwk76I/fRVl7bmy7CePnpSjGBaw9G5RddYg0vJBTfnC45bwfaQ/8G4q0sqwawK7BIrO2itUD3S6NqokV3pa880jdozIaQFA7Tw+itR1hX4zPxrhpeR+G9vtMfAm+7eJ6pKNsDRUPrR7GJ9vE2zgX6xZT0BqFjRrcrcfjVlXOwFZhKmq5fKaUwOLHUWN7CN6h7XkRmF0LLrQdo7pqPB17ikCKjopbDRHbSMSe3cqOn3gwfqbiksCSD1ewBofpjolrX8WiP1UDcJ60dQhOduS1rMA+eQ93ZQSnj5f6+C3kj9/sydhnlxCItkJAL2rSO582zCANvxxb34DfJgYNXr9piuf4NYSX/hZtaAOLVqeqHoL+e3qKzyVPrp+LdTbP1QNKx5UvxQAShWbTOTNPVuULrK7wCtOVBBYbADOGbSW6e015AxvcXNttyvckbQdBJhryFsZPEr9PxHZfN+QzvlRkg9vAru2jDyfIEdaT+OLQrSUHqnoX1FV2zAqsuOa2BEOEigb3dM8e2Ki1Ywm4Vbfep1u6EIeNrmu7Yr9vptXRaxWcTV/Ja6auL+24EgyvsC0xg0/e2NdX0wMD1mUlFAytSwVcScXanRipdyg7Q0/No/qsWNnxYUf5aAPsscnIQTULrKQVgdXTeQ7AzpO2W7JuaMdEdo0GdaS0XdGzwfRDYiCQ1KAPrz7HYoOj/fRiOyflC+zG9wLrmlIVDOaZOot6MKFpL6kLlT1EI+rYDCBpiEbKPswYEG79+Ayr1f39LQzeVLEtajCpt9ES6O/RdUu2Z1x3X+hm9D6dSOQUn9CRysg6meiERYW8a6sB/sFn6Oew96yVL7CPcPoRPipjx1mKZwFbyQbWcCwoInutACyWsCX9HHSyDrzVPGxY3ZfX8gCWbExdPtcUBc1UZM1swMbfp9tvQbGe1X1eSR2aUAnrjoXfCsoZ2K3I18zdJUDPdYUfhSvNyd9vxd/ZgVWNOGnCXSo2qeWBDesVzBZbZlEXnKhFzQKZXYJPWXcJIu83D1jh/xYCW8LMKN8ffq3BcOMt9AwceucmG7Dx95VUf2YbiHFtQu+vSvyw6OKjI2455Qzs7EVOTLQQEKtRbAi1Ss8OrO4AuxMjCQ9Lp0xHBNo8v6s6Y9SG8R/4twZWQ7OOq25xBb1eli0ZvThZsBp27sNqYJUXjOT6VhewembDuqbe/RkmsUXXch5WAjzHw1IWv6rg3zjLtDB25Egk2ipYW3CrKndgo4+mznecdK3twFgtauytluzAyk4XBQfFN7uDHldSA0EPoOTugwFSg5MEFtU/UfPhvMFntORJ10sLgCeJuih1X1rxc4HVUHqJwYV1OlXfYAG61C6Bhs3DgWh/E1oQ3c96Z8LMMuX4Xnj3ndrVsXZ6VtU9AItaP4aJ8HRYrP8l8HFBZKYH7FTb0ywDrHNv1ezDJjsiitV7jtE0ZYHjADayFLjoOFg01ZM2YYiAiM6hLO/6X4IJDqbU/xKgBRHfH9VRt1XYSXrY6HAmqOKz1T6sHizioIXag955Q+/EOLHhn4Be9U9yH1YWOzYaiM59WDsRrGNfqb3woKb2gk1bR0nke3Q/wJIwkw6P6HRJdZQq4jTqIL3tsRywpPTp1azTFxmLDaeAppLppAtl9mtpqpsz1dty/rcW1e20MnvFTIsmgkb/Rp08dUW9bIAo86L9EBkVi1kYbsMdHYjo39NUTSdMT0vRVp/tr2e8byz6IWkXHCddFH96nJp5xGlby/p2qx523Kq6P2BZBVRygfbwxMD+ghKHKSPMoskpWi8cM3n2HyMG9hdU70AtrsiTptYXlq9/gGJgf0k5PGnOXvO+xMCyCiUGllUoMbCsQomBZRVKDCyrUGJgWYUSA8sqlBhYVqHEwLIKpRSwLFYRxMCyCqR/4T/4qrOP62pD/QAAAABJRU5ErkJggg==" InformativeScreenshot="6ec3637e8ca36e9ae899b91db78cb479.png" ScopeSelectorArgument="&lt;html app='msedge.exe' title='Acme Telecom Services' /&gt;" SearchSteps="FuzzySelector" Version="V2" Visibility="Interactive" />
+              </uix:NClick.Target>
+            </uix:NClick>
+            <uix:NGetText DelayBefore="2" DisplayName="Get Text 'Scheduled maintenance'" sap:VirtualizedContainerService.HintSize="388,157" sap2010:WorkflowViewState.IdRef="NGetText_1" ScopeIdentifier="f407fe0c-1510-445e-a3c7-a0be6df8a581" TextString="[out_WorkNote]" Version="V3">
+              <uix:NGetText.Target>
+                <uix:TargetAnchorable BrowserURL="file:///C:/Users/anubhav.shankar/OneDrive/OneDrive%20-%20UiPath/Enablement/23.4/Demos/Public%20Contact%20Center%20Telecom%20App/ContactCenterServices/WebApp/Customer%20Settings.html" CvTextArea="819, 989, 381, 27" CvType="AnyWordGroup" DesignTimeRectangle="11, 979, 1815, 45" DesignTimeScaleFactor="1.5" ElementType="Text" FriendlyName="'Scheduled maintenance'" FullSelectorArgument="&lt;webctrl parentid='statusMessages' tag='P' /&gt;" FuzzySelectorArgument="&lt;webctrl parentid='statusMessages' tag='P' type='' /&gt;" Guid="a6bf3528-a0f1-47a0-b9d1-b56194e5bdf2" ImageBase64="" InformativeScreenshot="9df5301e106518e87956547e00d11f5f.png" ScopeSelectorArgument="&lt;html app='msedge.exe' title='Acme Telecom Services' /&gt;" SearchSteps="FuzzySelector" Version="V2" Visibility="Interactive" />
+              </uix:NGetText.Target>
+            </uix:NGetText>
+          </Sequence>
+        </ActivityAction>
+      </uix:NApplicationCard.Body>
+      <uix:NApplicationCard.TargetApp>
+        <uix:TargetApp Area="0, 0, 0, 0" BrowserType="Edge" ContentHash="qll8ptAEUk6lFPGQ3s2neg" IconBase64="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" InformativeScreenshot="9ec6108e40ee705007051182835836d5.jpg" Reference="Uvle58h9g0-rW_tmjU0wKw/j2qqvUHPekSTOO2TCDvvKA" Selector="&lt;html app='msedge.exe' title='Acme Telecom Services' /&gt;" Title="Acme Telecom Services" Url="[&quot;file:///&quot;+Directory.GetCurrentDirectory+&quot;/WebApp/Customer%20Settings.html&quot;]" />
+      </uix:NApplicationCard.TargetApp>
+    </uix:NApplicationCard>
+  </Sequence>
+</Activity>

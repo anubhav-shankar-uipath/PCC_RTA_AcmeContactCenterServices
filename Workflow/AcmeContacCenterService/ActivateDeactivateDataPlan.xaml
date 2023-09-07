@@ -1,0 +1,182 @@
+<Activity mc:Ignorable="sap sap2010" x:Class="RefreshRouter" this:RefreshRouter.in_DataPlanCode="TestCode" xmlns="http://schemas.microsoft.com/netfx/2009/xaml/activities" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:sap="http://schemas.microsoft.com/netfx/2009/xaml/activities/presentation" xmlns:sap2010="http://schemas.microsoft.com/netfx/2010/xaml/activities/presentation" xmlns:scg="clr-namespace:System.Collections.Generic;assembly=System.Private.CoreLib" xmlns:sco="clr-namespace:System.Collections.ObjectModel;assembly=System.Private.CoreLib" xmlns:this="clr-namespace:" xmlns:uix="http://schemas.uipath.com/workflow/activities/uix" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+  <x:Members>
+    <x:Property Name="out_WorkNote" Type="OutArgument(x:String)" />
+    <x:Property Name="in_DataPlanCode" Type="InArgument(x:String)" />
+    <x:Property Name="in_isActivation" Type="InArgument(x:Boolean)" />
+  </x:Members>
+  <VisualBasic.Settings>
+    <x:Null />
+  </VisualBasic.Settings>
+  <sap:VirtualizedContainerService.HintSize>658,1592</sap:VirtualizedContainerService.HintSize>
+  <sap2010:WorkflowViewState.IdRef>RefreshRouter_1</sap2010:WorkflowViewState.IdRef>
+  <TextExpression.NamespacesForImplementation>
+    <sco:Collection x:TypeArguments="x:String">
+      <x:String>System.Activities</x:String>
+      <x:String>System.Activities.Statements</x:String>
+      <x:String>System.Activities.Expressions</x:String>
+      <x:String>System.Activities.Validation</x:String>
+      <x:String>System.Activities.XamlIntegration</x:String>
+      <x:String>Microsoft.VisualBasic</x:String>
+      <x:String>Microsoft.VisualBasic.Activities</x:String>
+      <x:String>System</x:String>
+      <x:String>System.Collections</x:String>
+      <x:String>System.Collections.Generic</x:String>
+      <x:String>System.Data</x:String>
+      <x:String>System.Diagnostics</x:String>
+      <x:String>System.Drawing</x:String>
+      <x:String>System.IO</x:String>
+      <x:String>System.Linq</x:String>
+      <x:String>System.Net.Mail</x:String>
+      <x:String>System.Xml</x:String>
+      <x:String>System.Xml.Linq</x:String>
+      <x:String>UiPath.Core</x:String>
+      <x:String>UiPath.Core.Activities</x:String>
+      <x:String>System.Windows.Markup</x:String>
+      <x:String>GlobalVariablesNamespace</x:String>
+      <x:String>GlobalConstantsNamespace</x:String>
+      <x:String>UiPath.UIAutomationNext.Enums</x:String>
+      <x:String>UiPath.UIAutomationCore.Contracts</x:String>
+      <x:String>System.Collections.ObjectModel</x:String>
+      <x:String>UiPath.UIAutomationNext.Activities</x:String>
+      <x:String>UiPath.Platform.ObjectLibrary</x:String>
+      <x:String>UiPath.Shared.Activities</x:String>
+      <x:String>UiPath.UIAutomationNext.Contracts</x:String>
+      <x:String>System.Runtime.Serialization</x:String>
+      <x:String>UiPath.UIAutomationNext.Models.CV</x:String>
+      <x:String>System.Reflection</x:String>
+      <x:String>UiPath.Platform.Triggers</x:String>
+      <x:String>System.ComponentModel</x:String>
+      <x:String>UiPath.UIAutomationNext.Activities.Models</x:String>
+    </sco:Collection>
+  </TextExpression.NamespacesForImplementation>
+  <TextExpression.ReferencesForImplementation>
+    <sco:Collection x:TypeArguments="AssemblyReference">
+      <AssemblyReference>System.Activities</AssemblyReference>
+      <AssemblyReference>Microsoft.VisualBasic</AssemblyReference>
+      <AssemblyReference>System.Private.CoreLib</AssemblyReference>
+      <AssemblyReference>System.Data</AssemblyReference>
+      <AssemblyReference>System.Data.Common</AssemblyReference>
+      <AssemblyReference>System.Data.DataSetExtensions</AssemblyReference>
+      <AssemblyReference>System</AssemblyReference>
+      <AssemblyReference>System.Drawing</AssemblyReference>
+      <AssemblyReference>System.Core</AssemblyReference>
+      <AssemblyReference>System.Xml</AssemblyReference>
+      <AssemblyReference>System.Xml.Linq</AssemblyReference>
+      <AssemblyReference>System.Xaml</AssemblyReference>
+      <AssemblyReference>UiPath.System.Activities</AssemblyReference>
+      <AssemblyReference>UiPath.UiAutomation.Activities</AssemblyReference>
+      <AssemblyReference>UiPath.Studio.Constants</AssemblyReference>
+      <AssemblyReference>UiPath.UIAutomationNext</AssemblyReference>
+      <AssemblyReference>UiPath.UIAutomationCore</AssemblyReference>
+      <AssemblyReference>System.ObjectModel</AssemblyReference>
+      <AssemblyReference>UiPath.UIAutomationNext.Activities</AssemblyReference>
+      <AssemblyReference>UiPath.Platform</AssemblyReference>
+      <AssemblyReference>UiPath.WorkflowEvents.Activities</AssemblyReference>
+      <AssemblyReference>UiPath.OCR.Activities</AssemblyReference>
+      <AssemblyReference>System.Private.ServiceModel</AssemblyReference>
+      <AssemblyReference>System.Runtime.Serialization.Formatters</AssemblyReference>
+      <AssemblyReference>System.Private.DataContractSerialization</AssemblyReference>
+      <AssemblyReference>System.Runtime.Serialization.Primitives</AssemblyReference>
+      <AssemblyReference>System.ComponentModel.TypeConverter</AssemblyReference>
+      <AssemblyReference>System.Console</AssemblyReference>
+      <AssemblyReference>System.Configuration.ConfigurationManager</AssemblyReference>
+      <AssemblyReference>System.Security.Permissions</AssemblyReference>
+      <AssemblyReference>System.ComponentModel</AssemblyReference>
+      <AssemblyReference>System.Memory</AssemblyReference>
+      <AssemblyReference>System.Private.Uri</AssemblyReference>
+      <AssemblyReference>System.Reflection.DispatchProxy</AssemblyReference>
+      <AssemblyReference>System.Reflection.TypeExtensions</AssemblyReference>
+      <AssemblyReference>System.Reflection.Metadata</AssemblyReference>
+      <AssemblyReference>System.ComponentModel.EventBasedAsync</AssemblyReference>
+      <AssemblyReference>PresentationFramework</AssemblyReference>
+      <AssemblyReference>WindowsBase</AssemblyReference>
+      <AssemblyReference>Microsoft.Win32.Primitives</AssemblyReference>
+      <AssemblyReference>System.ComponentModel.Primitives</AssemblyReference>
+      <AssemblyReference>UiPath.Workflow</AssemblyReference>
+      <AssemblyReference>System.IO.FileSystem.Watcher</AssemblyReference>
+      <AssemblyReference>System.IO.Packaging</AssemblyReference>
+      <AssemblyReference>System.IO.FileSystem.AccessControl</AssemblyReference>
+      <AssemblyReference>System.IO.FileSystem.DriveInfo</AssemblyReference>
+    </sco:Collection>
+  </TextExpression.ReferencesForImplementation>
+  <Sequence DisplayName="RefreshRouter" sap:VirtualizedContainerService.HintSize="668,1527" sap2010:WorkflowViewState.IdRef="Sequence_1">
+    <sap:WorkflowViewStateService.ViewState>
+      <scg:Dictionary x:TypeArguments="x:String, x:Object">
+        <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+      </scg:Dictionary>
+    </sap:WorkflowViewStateService.ViewState>
+    <uix:NApplicationCard AttachMode="ByInstance" DisplayName="Use Browser Edge: Acme Telecom Services" sap:VirtualizedContainerService.HintSize="606,1416" sap2010:WorkflowViewState.IdRef="NApplicationCard_1" InteractionMode="DebuggerApi" ScopeGuid="f407fe0c-1510-445e-a3c7-a0be6df8a581" Version="V2">
+      <uix:NApplicationCard.Body>
+        <ActivityAction x:TypeArguments="x:Object">
+          <ActivityAction.Argument>
+            <DelegateInArgument x:TypeArguments="x:Object" Name="WSSessionData" />
+          </ActivityAction.Argument>
+          <Sequence DisplayName="Do" sap:VirtualizedContainerService.HintSize="572,1199" sap2010:WorkflowViewState.IdRef="Sequence_2">
+            <Sequence.Variables>
+              <Variable x:TypeArguments="x:String" Name="VoiceStatus" />
+            </Sequence.Variables>
+            <sap:WorkflowViewStateService.ViewState>
+              <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+              </scg:Dictionary>
+            </sap:WorkflowViewStateService.ViewState>
+            <uix:NSetText DisplayName="Set Text 'Set Text 'INPUT dataPlanCode''" sap:VirtualizedContainerService.HintSize="510,162" sap2010:WorkflowViewState.IdRef="NSetText_1" ScopeIdentifier="f407fe0c-1510-445e-a3c7-a0be6df8a581" Text="[in_DataPlanCode]" Version="V3">
+              <uix:NSetText.Target>
+                <uix:TargetAnchorable BrowserURL="file:///C:/Users/anubhav.shankar/OneDrive/OneDrive%20-%20UiPath/Enablement/23.4/Demos/Public%20Contact%20Center%20Telecom%20App/ContactCenterServices/WebApp/Customer%20Settings.html" ContentHash="ReCu_Xc_m0q0b8rSvEzXxA" CvElementArea="70, 768, 261, 43" CvTextArea="78, 777, 149, 19" CvTextArgument="Enter Plan Code" CvType="InputBox" DesignTimeRectangle="71, 834, 260, 40" DesignTimeScaleFactor="1.5" ElementType="InputBox" FriendlyName="'Set Text 'INPUT dataPlanCode''" FullSelectorArgument="&lt;webctrl id='dataPlanCode' tag='INPUT' /&gt;" FuzzyAccuracy="0.79" FuzzySelectorArgument="&lt;webctrl id='dataPlanCode' tag='INPUT' type='text' class='' aaname='' /&gt;" Guid="d9b1a12d-5e05-4632-97b6-53662895a448" ImageBase64="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" InformativeScreenshot="f3b7e11cc07af46a4593194f1a05d4a9.png" Reference="Uvle58h9g0-rW_tmjU0wKw/L_YkqpAjKEWwOc4-LWY0SA" ScopeSelectorArgument="&lt;html app='msedge.exe' title='Acme Telecom Services' /&gt;" SearchSteps="FuzzySelector" Version="V2" Visibility="Interactive" />
+              </uix:NSetText.Target>
+            </uix:NSetText>
+            <If Condition="[in_isActivation]" sap:VirtualizedContainerService.HintSize="510,884" sap2010:WorkflowViewState.IdRef="If_1">
+              <If.Then>
+                <Sequence sap:VirtualizedContainerService.HintSize="476,367" sap2010:WorkflowViewState.IdRef="Sequence_3">
+                  <sap:WorkflowViewStateService.ViewState>
+                    <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                      <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                    </scg:Dictionary>
+                  </sap:WorkflowViewStateService.ViewState>
+                  <uix:NClick ActivateBefore="True" ClickType="Single" DisplayName="Click 'Click 'Activate Data Plan''" sap:VirtualizedContainerService.HintSize="434,157" sap2010:WorkflowViewState.IdRef="NClick_1" KeyModifiers="None" MouseButton="Left" ScopeIdentifier="f407fe0c-1510-445e-a3c7-a0be6df8a581" Version="V3">
+                    <uix:NClick.Target>
+                      <uix:TargetAnchorable BrowserURL="file:///C:/Users/anubhav.shankar/OneDrive/OneDrive%20-%20UiPath/Enablement/23.4/Demos/Public%20Contact%20Center%20Telecom%20App/ContactCenterServices/WebApp/Customer%20Settings.html" ContentHash="Yb8ByXwbEUyVqpr2YtuvBw" CvElementArea="350, 832, 199, 43" CvTextArea="365, 842, 167, 19" CvTextArgument="Activate Data Plan" CvType="Button" DesignTimeRectangle="353, 835, 195, 38" DesignTimeScaleFactor="1.5" ElementType="Button" FriendlyName="'Click 'Activate Data Plan''" FullSelectorArgument="&lt;webctrl class='ActivateRow' parentid='settings' tag='BUTTON' /&gt;" FuzzyAccuracy="0.85" FuzzySelectorArgument="&lt;webctrl class='ActivateRow' parentid='settings' tag='BUTTON' type='' aaname='Activate Data Plan' check:innerText='Activate Data Plan' /&gt;" Guid="f8316047-ff32-45fa-8b66-09408c4f66cd" ImageBase64="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" InformativeScreenshot="ca74f4724d6fb499aac9cd5efef2a5e6.png" Reference="Uvle58h9g0-rW_tmjU0wKw/5mq4s9P3fkG_xLMmV3Je4A" ScopeSelectorArgument="&lt;html app='msedge.exe' title='Acme Telecom Services' /&gt;" SearchSteps="FuzzySelector" Version="V2" Visibility="Interactive" />
+                    </uix:NClick.Target>
+                  </uix:NClick>
+                  <Assign sap:VirtualizedContainerService.HintSize="434,82" sap2010:WorkflowViewState.IdRef="Assign_5">
+                    <Assign.To>
+                      <OutArgument x:TypeArguments="x:String">[out_WorkNote]</OutArgument>
+                    </Assign.To>
+                    <Assign.Value>
+                      <InArgument x:TypeArguments="x:String">[in_DataPlanCode +" Activated."]</InArgument>
+                    </Assign.Value>
+                  </Assign>
+                </Sequence>
+              </If.Then>
+              <If.Else>
+                <Sequence sap:VirtualizedContainerService.HintSize="476,367" sap2010:WorkflowViewState.IdRef="Sequence_4">
+                  <sap:WorkflowViewStateService.ViewState>
+                    <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                      <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                    </scg:Dictionary>
+                  </sap:WorkflowViewStateService.ViewState>
+                  <uix:NClick ActivateBefore="True" ClickType="Single" DisplayName="Click 'Click 'Deactivate Data Plan''" sap:VirtualizedContainerService.HintSize="434,157" sap2010:WorkflowViewState.IdRef="NClick_2" KeyModifiers="None" MouseButton="Left" ScopeIdentifier="f407fe0c-1510-445e-a3c7-a0be6df8a581" Version="V3">
+                    <uix:NClick.Target>
+                      <uix:TargetAnchorable BrowserURL="file:///C:/Users/anubhav.shankar/OneDrive/OneDrive%20-%20UiPath/Enablement/23.4/Demos/Public%20Contact%20Center%20Telecom%20App/ContactCenterServices/WebApp/Customer%20Settings.html" ContentHash="GHdBIMZ2fEaH94IBvGYBZg" CvElementArea="551, 832, 223, 42" CvTextArea="567, 842, 190, 19" CvTextArgument="Deactivate Data Plan" CvType="Button" DesignTimeRectangle="554, 835, 218, 38" DesignTimeScaleFactor="1.5" ElementType="Button" FriendlyName="'Click 'Deactivate Data Plan''" FullSelectorArgument="&lt;webctrl aaname='Deactivate Data Plan' class='ActivateRow' parentid='settings' tag='BUTTON' /&gt;" FuzzySelectorArgument="&lt;webctrl aaname='Deactivate Data Plan' class='ActivateRow' parentid='settings' tag='BUTTON' type='' check:innerText='Deactivate Data Plan' /&gt;" Guid="032e08bf-216c-4c8f-9ed5-e0a5ff08a86d" ImageBase64="iVBORw0KGgoAAAANSUhEUgAAAN4AAAAqCAYAAADcZOW4AAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAeISURBVHhe7ZrPa9tIFMf3j8i/4v8gf8AeesthoYceFgrZw0KgPeTQsIcUUgjBh8ISCg2kUEiggRIMOYRASA8+lOTghRgCLiRg7HXs2JZlv31vfkgjaWRLju3Ztm/gQ+LRSDN6b74zb2b0i//PN2AYZrGw8BjGAYHw6ksrDMPMGRYewziAhccwDmDhMYwDWHgM4wAWHsM4gIXHMA5g4TGMA1h4DOMAFh7DOGDmwuucdiA19TwYVS6ht/bCeq9rGs+OwCtfQMfI61Wo4R3wXkbLzpzCDnRPq9CfcT2L8ofNdrNA2j8lDbD99Rp4xR1oJO6pQc/I+78xP+HV78C/qkUYNuUlAA/8vU3r/e54Dx61r3npRHjSbrOvZzH+sNtuFmjhjWrRtgtq4aAyLL2P3fOTCm90GhrCpLVdgZEosYBZJBfz6zxZmLfw5uuP+QvP37Nfb6xfyvYPqtAtyDwWnuU60Tq8E2Xg+gxalutu+DmFRzzeH+6EV1/agP6NKlOUeSw8y3VB4Rj8gTKOGqUkL6CzXzVCIHwOxfDbljBoeRf65SaMeqogJYr5K2XorsTKLq3CfbEMft1TBWPPfalGTTNVTsQ16UQliCcXMKSft2W4jzyfwA5wTReb4P2u8jK1UXXaSDI7TQ6bWHiMP8S6rdKJtr/XgWH5DDq63BjbmXYfiefLNGo2wd/fjazL0pgsvGQZq/Ay9xflD3yH5tpZos/0Z7Q/4UZ4wSjlweC1ztuE3pV6ySZ2rMMz6JewwwlDxdYghSPwVf7w6hL6+1j28BL8W3U/CqMd1LUatAl66PBS7LnFVRTUe+juYwdpY1Yb66bnbb0V90eEZxOXRovy5kLOGpnbuAGdv8+wg1M+tofat3+gruWwSQpT++M5vo8QCwrtvCzbX6oEA8Do65EUzhjbtT+pws07GIj3wvc8v1MiVLYP2mBnovAKBzCgug2fJISXq7/o2RsHHPxDm0+i3SRaURjrea7LTo8j4SUN2ihW5YvFw52CnhHuoP9E5v27VxPOG5akg0M2oV+jsiiUNZX3vCwFQWGQObuuhLOXNLo9XIoKD8OyjzIsG37eCcqIfBWuDT9uiN+52ohIu4X1EHlsksa0/ng4wY6G7fffxsRBnVh0dHNGsdnuA3jUsY21l6axrd7rSs+M6aQLbxVafxyAd63Eowe84J6wffl8oW0rbWbOyu2SvBD3/TQ4E54uJw26mujgJkGnPpSdehzxDtw50fXER1dVZw/Dh9/odzbh1Qsn4FNWJNzUM8ZkIRA2kSXzZmOT6fwxnnjHTrNdOsqGQUiajqxrQmqiuI1wMdm+dJJ2HzOoqY2cSbbMgjPhaYNKR+uXbcKAwoA4GJ5QGn05iD5neRPuXx1jmQsMBWowDOLx0JDjOm+UjMJDQXS/Up4RcugwEztSYt2SoY1EegfIaZMY0/kjpPHrG+hsnWCdZRiIIwjd/qzCw5np6S48vMM2Y6jqV4x1Vg7hWY8TTi+gh2Ft03qPRXiZfKHehWbq+P16PYthdiR/ChwJT88Q+MLr9FuNgJNS4KhN6J7iWkFli0QLZXLODRkzNOTshYed8W2VMoPQRc8+0bAsexuJpPDy2sTOdP5ACrvQv5L3Bonaf4PiuaUfk4XX+PMMfDF4GIk2Z86x09P/OYSXZSbWJIWXxxdjBhEtvAztnoQb4elwjYwj4v8xo4yF9mflzXoVeq92oLUcXnv4Mn/h1ZfUgl6sD1Wnja1l8rSRSAovn03SmM4fNKtTG/G+6zI8rL2BVvBuWqQThGduaJQOoPN0I4wGjAhB3p/OLISXzxc/sPACQ3w9Vs4wRlyLQMSMgiPU8BPNMDu4aFdl9egckHyObk9yjaeu4Qg82KLfeYSHDjsnh2G4+VJ1okj4ka+NRFJ4eWySvK6Zzh8oGrHziOuc2MZIMOhMEl5RRgW0MZQIv1+rQ/uFCC+vL35I4dG5jv5SIrot29oT20vCUfems5eP1cipy2tjeeBvR8XUwhBQPtvcFle7mnU0pPlcvQ0dzFT5hFf/S77H8JZuMo9FiJxtRALhGZ0ju03Smc4f4RZ9P3LGtQodtbMX3Xyw2E6LqxbuNgowhPXUa5k7kWk8Xnh5ffGdCy/5bSDG2HpRTUZInEFtosFkeJM8s5IdR4+cQYfU53K08L+R9Q5v5d/QUcY53tizsNBBwxMsYz3HM1EOotSuwEPkWt42Ynm1Thxd07mRcY6X0SZpTOuP0GZ3st7g3AvtIzYlTJvYbBfaR74T5p/i2o7qRJuMSNi2zh3j8cLL64vvXXi2RAvrqzJ0nyXDPknyKw2wfuWAYtqvRb5CGNWq8qsCNdKOzj9Eyt8XL40dObxu+fqjsY6zoxjpMdEMiXnpwsMQTY3+0bo0OdtIZ3NioU8J6wvOlbLaxM70/lAbEiLkxESbEfSVB5YNjjLUmSVhs1195Qjfyagf6/NLRzh7a6FOPn6ZhfDy+eI7FR7DMJNh4TGMA1h4DOMAFh7DOICFxzAOYOExjANYeAzjABYewziAhccwDmDhMYwDWHgM4wAWHsM4gIXHMA5ICI9hmMXBwmOYhfMN/gM28dpf7m4iQAAAAABJRU5ErkJggg==" InformativeScreenshot="275c096db0a8ae0f8aef5d5afeecf3fb.png" Reference="Uvle58h9g0-rW_tmjU0wKw/UW6dzHj_E0a6WnGyyOTY2w" ScopeSelectorArgument="&lt;html app='msedge.exe' title='Acme Telecom Services' /&gt;" SearchSteps="FuzzySelector" Version="V2" Visibility="Interactive" />
+                    </uix:NClick.Target>
+                  </uix:NClick>
+                  <Assign sap:VirtualizedContainerService.HintSize="434,82" sap2010:WorkflowViewState.IdRef="Assign_4">
+                    <Assign.To>
+                      <OutArgument x:TypeArguments="x:String">[out_WorkNote]</OutArgument>
+                    </Assign.To>
+                    <Assign.Value>
+                      <InArgument x:TypeArguments="x:String">[in_DataPlanCode +" Deactivated."]</InArgument>
+                    </Assign.Value>
+                  </Assign>
+                </Sequence>
+              </If.Else>
+            </If>
+          </Sequence>
+        </ActivityAction>
+      </uix:NApplicationCard.Body>
+      <uix:NApplicationCard.TargetApp>
+        <uix:TargetApp Area="0, 0, 0, 0" BrowserType="Edge" ContentHash="qll8ptAEUk6lFPGQ3s2neg" IconBase64="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" InformativeScreenshot="9ec6108e40ee705007051182835836d5.jpg" Reference="Uvle58h9g0-rW_tmjU0wKw/j2qqvUHPekSTOO2TCDvvKA" Selector="&lt;html app='msedge.exe' title='Acme Telecom Services' /&gt;" Title="Acme Telecom Services" Url="[&quot;file:///&quot;+Directory.GetCurrentDirectory+&quot;/WebApp/Customer%20Settings.html&quot;]" />
+      </uix:NApplicationCard.TargetApp>
+    </uix:NApplicationCard>
+  </Sequence>
+</Activity>

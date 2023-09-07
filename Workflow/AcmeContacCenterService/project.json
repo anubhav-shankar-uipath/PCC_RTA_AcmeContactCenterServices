@@ -1,0 +1,126 @@
+{
+  "name": "Acme_ContacCenterService",
+  "description": "Build a process that supports real-time communication with Apps",
+  "main": "Main.xaml",
+  "dependencies": {
+    "UiPath.ServiceNow.IntegrationService.Activities": "[5.2.0]",
+    "UiPath.System.Activities": "[23.4.2]",
+    "UiPath.UIAutomation.Activities": "[23.4.8]",
+    "UiPath.WorkflowEvents.Activities": "[2.0.0]"
+  },
+  "webServices": [],
+  "entitiesStores": [],
+  "schemaVersion": "4.0",
+  "studioVersion": "23.4.0.0",
+  "projectVersion": "1.0.2",
+  "runtimeOptions": {
+    "autoDispose": false,
+    "netFrameworkLazyLoading": false,
+    "isPausable": false,
+    "isAttended": false,
+    "requiresUserInteraction": false,
+    "supportsPersistence": false,
+    "workflowSerialization": "DataContract",
+    "excludedLoggedData": [
+      "Private:*",
+      "*password*"
+    ],
+    "executionType": "Workflow",
+    "readyForPiP": false,
+    "startsInPiP": false,
+    "mustRestoreAllDependencies": true,
+    "pipType": "ChildSession"
+  },
+  "designOptions": {
+    "projectProfile": "Developement",
+    "outputType": "Process",
+    "libraryOptions": {
+      "includeOriginalXaml": false,
+      "privateWorkflows": []
+    },
+    "processOptions": {
+      "ignoredFiles": []
+    },
+    "fileInfoCollection": [],
+    "modernBehavior": true
+  },
+  "expressionLanguage": "VisualBasic",
+  "entryPoints": [
+    {
+      "filePath": "Main.xaml",
+      "uniqueId": "26a10a23-5c38-43cc-8b06-cab02c964e8e",
+      "input": [],
+      "output": []
+    },
+    {
+      "filePath": "invokedWorkflows\\example1.xaml",
+      "uniqueId": "89b31ae2-ae19-4185-af28-9bd68ab4b5d1",
+      "input": [],
+      "output": []
+    },
+    {
+      "filePath": "UpdateIncident.xaml",
+      "uniqueId": "50802700-4e6a-4d0d-a643-31217c3308d3",
+      "input": [],
+      "output": []
+    },
+    {
+      "filePath": "RefreshRouter.xaml",
+      "uniqueId": "550d152e-5697-4fdc-bb7a-a2f8103b145b",
+      "input": [],
+      "output": []
+    },
+    {
+      "filePath": "ToggleRoaming.xaml",
+      "uniqueId": "b850d527-31ce-49c9-a87d-53be892cca70",
+      "input": [],
+      "output": []
+    },
+    {
+      "filePath": "GetAddOnPlans.xaml",
+      "uniqueId": "dd94adb7-6ab9-4acc-9c6b-b914651b20a7",
+      "input": [],
+      "output": []
+    },
+    {
+      "filePath": "ActivateDeactivateDataPlan.xaml",
+      "uniqueId": "bdb80a25-0116-48e7-a70f-b6485b82df9f",
+      "input": [],
+      "output": []
+    },
+    {
+      "filePath": "ToggleVoiceServices.xaml",
+      "uniqueId": "c2ce72c6-d0bf-4819-a66b-7f6f4307d0a0",
+      "input": [],
+      "output": []
+    },
+    {
+      "filePath": "SwitchServicePlan.xaml",
+      "uniqueId": "e5898d5e-906d-473f-a7ff-aae2b1ea9ae3",
+      "input": [],
+      "output": []
+    },
+    {
+      "filePath": "CheckOutage.xaml",
+      "uniqueId": "f8a2fc7f-c328-491b-a833-612a9b08bfc5",
+      "input": [],
+      "output": []
+    },
+    {
+      "filePath": "invokedWorkflows\\CreateIncident.xaml",
+      "uniqueId": "bd66850d-773b-44ee-8fe5-1c4eca24ca2b",
+      "input": [],
+      "output": []
+    },
+    {
+      "filePath": "LoginWithCustomerID.xaml",
+      "uniqueId": "b7ae1ecb-6d7c-424a-92eb-1b297045e1d4",
+      "input": [],
+      "output": []
+    }
+  ],
+  "isTemplate": false,
+  "templateProjectData": {},
+  "publishData": {},
+  "targetFramework": "Windows"
+}

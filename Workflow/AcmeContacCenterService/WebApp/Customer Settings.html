@@ -1,0 +1,401 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Acme Telecom Services</title>
+    <style>
+        /* Global Styles */
+        body {
+            font-family: Arial, sans-serif;
+            //background-color: #FEE3DC;
+            margin: 0;
+            padding: 0;
+        }
+
+        /* Header Styles */
+        header {
+            background-color: #FA4616;
+            color: white;
+            padding: 20px;
+            text-align: center;
+        }
+
+        h1 {
+            margin: 0;
+        }
+
+        input[type="text"] {
+            padding: 5px;
+            margin-right: 10px;
+			margin-top: 10px
+        }
+
+        button {
+            background-color: #ED145B;
+            color: white;
+            border: none;
+            padding: 5px 10px;
+            cursor: pointer;
+        }
+		.ActivateRow{
+			margin: 0px;
+		}
+        /* Customer Details Styles */
+        #customerDetails {
+            background-color: #FCDBE6;
+            padding: 20px;
+            margin: 20px;
+            border-radius: 5px;
+            box-shadow: 0 0 5px rgba(0, 0, 0, 0.2);
+        }
+
+        /* Settings Section Styles */
+        #settings {
+            background-color: #FCDBE6;
+            padding: 20px;
+            margin: 20px;
+            border-radius: 5px;
+            box-shadow: 0 0 5px rgba(0, 0, 0, 0.2);
+        }
+
+        h2 {
+            color: #ED145B;
+        }
+
+        p {
+            margin: 10px 0;
+        }
+
+        /* Button Styles */
+        button {
+            background-color: #ED145B;
+            color: white;
+            border: none;
+            padding: 5px 10px;
+            margin-right: 10px;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background-color: #FA4616;
+        }
+
+        /* Input Styles */
+        input[type="text"] {
+            padding: 5px;
+            margin-right: 10px;
+            border: 1px solid #ED145B;
+            border-radius: 3px;
+        }
+		
+		#statusMessages {
+			margin-top: 20px;
+		}
+
+		.info {
+			background-color: #FEE3DC;
+			color: #ED145B;
+			border: 1px solid #ED145B;
+			padding: 5px 10px;
+			margin-bottom: 5px;
+			border-radius: 3px;
+		}
+
+		.success {
+			background-color: #E6FCEB;
+			color: #4CAF50;
+			border: 1px solid #4CAF50;
+			padding: 5px 10px;
+			margin-bottom: 5px;
+			border-radius: 3px;
+		}
+
+		.error {
+			background-color: #FCEDE6;
+			color: #FF5722;
+			border: 1px solid #FF5722;
+			padding: 5px 10px;
+			margin-bottom: 5px;
+			border-radius: 3px;
+		}
+
+        /* New Styles for Check Outages Button */
+        #checkOutagesButton {
+            background-color: #ED145B;
+            color: white;
+            border: none;
+            padding: 5px 10px;
+            margin-top: 10px;
+            cursor: pointer;
+        }
+
+        #checkOutagesButton:hover {
+            background-color: #FA4616;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Acme Telecom Services</h1>
+        <input type="text" id="customerId" placeholder="Enter Customer ID">
+        <button onclick="searchCustomer()">Search</button>
+    </header>
+
+    <div id="customerDetails">
+        <!-- Customer details will be displayed here -->
+    </div>
+
+     <div id="settings">
+        <h2>Customer Settings</h2>
+        <button onclick="refreshRouter()">Refresh Router</button>
+		<button onclick="toggleVoiceCallService()">Toggle Voice Call Service</button>
+        <button onclick="toggleRoaming()">Toggle Roaming</button><br />
+        <input type="text" id="dataPlanCode" placeholder="Enter Plan Code">
+        <button class="ActivateRow" onclick="activateDataPlan()">Activate Data Plan</button>
+        <button class="ActivateRow" onclick="deactivateDataPlan()">Deactivate Data Plan</button><br />
+        <input type="text" id="newPlanCode" placeholder="Enter New Plan Code">
+        <button onclick="switchServicePlan()">Switch Service Plan</button><br />
+		<div id="pincodeInput">
+        <input type="text" id="pincode" placeholder="Enter Pin Code">
+        <button id="checkOutagesButton" onclick="checkOutages()">Check Outages</button>
+    </div>
+    </div>
+	<div id="statusMessages">
+    <!-- Status messages will be displayed here -->
+	</div>
+
+    <script>
+        // Sample dummy customer details
+        const customers = [
+            {
+                id: 1,
+                name: "John Doe",
+                address: "123 Main St",
+                phone: "(555) 123-4567",
+                currentServicePlan: "Plan A - Basic",
+                addons: ["Addon 1", "Addon 2"],
+				roamingStatus: "Active",
+				voiceStatus: "Active"
+            },
+            {
+                id: 2,
+                name: "Jane Smith",
+                address: "456 Elm St",
+                phone: "(555) 987-6543",
+                currentServicePlan: "Plan B - Premium",
+                addons: ["Addon 3", "Addon 4"],
+				roamingStatus: "InActive",
+				voiceStatus: "Active"
+            },
+            {
+                id: 3,
+                name: "Bob Johnson",
+                address: "789 Oak St",
+                phone: "(555) 789-1234",
+                currentServicePlan: "Plan A - Basic",
+                addons: ["Addon 2"],
+				roamingStatus: "Active",
+				voiceStatus: "InActive"
+            },
+            {
+                id: 4,
+                name: "Alice Brown",
+                address: "101 Pine St",
+                phone: "(555) 456-7890",
+                currentServicePlan: "Plan C - Ultimate",
+                addons: ["Addon 1", "Addon 3", "Addon 5"],
+				roamingStatus: "InActive",
+				voiceStatus: "Active"
+            },
+            {
+                id: 5,
+                name: "Eva White",
+                address: "202 Cedar St",
+                phone: "(555) 321-6540",
+                currentServicePlan: "Plan B - Premium",
+                addons: ["Addon 4", "Addon 5"],
+				roamingStatus: "Active",
+				voiceStatus: "Active"
+            }
+        ];
+
+        function searchCustomer() {
+            const customerId = parseInt(document.getElementById("customerId").value);
+            const customer = customers.find(cust => cust.id === customerId);
+
+            if (customer) {
+                displayCustomerDetails(customer);
+            } else {
+                alert("Customer not found!");
+            }
+        }
+
+        function displayCustomerDetails(customer) {
+            const customerDetailsDiv = document.getElementById("customerDetails");
+            customerDetailsDiv.innerHTML = `
+                <h2>Customer Details</h2>
+                <p><strong>Customer ID:</strong> ${customer.id}</p>
+                <p><strong>Name:</strong> ${customer.name}</p>
+                <p><strong>Address:</strong> ${customer.address}</p>
+                <p><strong>Phone Number:</strong> ${customer.phone}</p>
+                <p><strong>Current Service Plan:</strong> ${customer.currentServicePlan}</p>
+                <p><strong>Add-on Plans:</strong> ${customer.addons.join(", ")}</p>
+				<p><strong>Roaming Status:</strong> ${customer.roamingStatus}</p>
+				<p><strong>Voice Service:</strong> ${customer.voiceStatus}</p>
+				`;
+        }
+		
+		function toggleRoaming() {
+			const customerId = parseInt(document.getElementById("customerId").value);
+			const customer = customers.find(cust => cust.id === customerId);
+
+			if (customer) {
+				// Toggle roaming status (Active/Inactive)
+				customer.roamingStatus = customer.roamingStatus === "Active" ? "Inactive" : "Active";
+				
+				// Update the displayed customer details
+				displayCustomerDetails(customer);
+			} 
+			else {
+				alert("Customer not found!");
+			}
+		}
+		
+		function activateDataPlan() {
+			const customerId = parseInt(document.getElementById("customerId").value);
+			const customer = customers.find(cust => cust.id === customerId);
+			const dataPlanCode = document.getElementById("dataPlanCode").value;
+
+			if (customer) {
+				// Check if the data plan is not already in the addons array
+				if (!customer.addons.includes(dataPlanCode)) {
+					// Add the data plan to the addons array
+					customer.addons.push(dataPlanCode);
+
+					// Update the displayed customer details
+					displayCustomerDetails(customer);
+				} else {
+					alert("Data plan is already activated.");
+				}
+			} else {
+				alert("Customer not found!");
+			}
+		}
+
+		function deactivateDataPlan() {
+			const customerId = parseInt(document.getElementById("customerId").value);
+			const customer = customers.find(cust => cust.id === customerId);
+			const dataPlanCode = document.getElementById("dataPlanCode").value;
+
+			if (customer) {
+				// Check if the data plan is in the addons array
+				const dataIndex = customer.addons.indexOf(dataPlanCode);
+				if (dataIndex !== -1) {
+					// Remove the data plan from the addons array
+					customer.addons.splice(dataIndex, 1);
+
+					// Update the displayed customer details
+					displayCustomerDetails(customer);
+				} else {
+					alert("Data plan is not activated.");
+				}
+			} else {
+				alert("Customer not found!");
+			}
+		}
+		
+		
+		function refreshRouter() {
+			showStatusMessage("Establishing connection...", "info");
+
+			setTimeout(function () {
+				showStatusMessage("Checking router status...", "info");
+
+				setTimeout(function () {
+					showStatusMessage("Reconfiguring router...", "info");
+
+					setTimeout(function () {
+						// Simulate server response
+						const success = Math.random() < 0.5; // Randomly determine success or failure
+
+						if (success) {
+							showStatusMessage("Router successfully refreshed.", "success");
+						} else {
+							showStatusMessage("Router refresh failed. Please try again.", "error");
+						}
+					}, 2000); // Delay for 2 seconds
+				}, 2000); // Delay for 2 seconds
+			}, 2000); // Delay for 2 seconds
+		}
+
+		function showStatusMessage(message, type) {
+			const statusDiv = document.getElementById("statusMessages");
+			statusDiv.innerHTML = ''; // Clear previous messages
+			const statusMessage = document.createElement("p");
+			statusMessage.className = type;
+			statusMessage.textContent = message;
+			statusDiv.appendChild(statusMessage);
+		}
+		function getRandomTimePeriod() {
+            // Generate a random time period between 1 and 6 hours
+            const hours = Math.floor(Math.random() * 6) + 1;
+            return `${hours} ${hours > 1 ? 'hours' : 'hour'}`;
+        }
+		function getRandomStartTime() {
+            // Generate a random start time between 8:00 AM and 6:00 PM
+            const hours = Math.floor(Math.random() * 11) + 8;
+            const minutes = Math.floor(Math.random() * 60);
+            const ampm = hours >= 12 ? 'PM' : 'AM';
+            const formattedHours = hours > 12 ? hours - 12 : hours;
+            return `${formattedHours}:${minutes < 10 ? '0' : ''}${minutes} ${ampm}`;
+        }
+
+        function checkOutages() {
+            const pincode = document.getElementById("pincode").value;
+            const outageMessages = [
+                `Network is currently down in your area. It will be back in approximately ${getRandomTimePeriod()}.`,
+                `Scheduled maintenance for your area is planned for tomorrow at ${getRandomStartTime()}. It will last for approximately ${getRandomTimePeriod()}.`,
+                `Network in your area experienced a temporary outage but is now back online.`
+            ];
+
+            if (pincode) {
+                // Simulate a delay to mimic outage check
+                showStatusMessage("Checking network status...", "info");
+                setTimeout(function () {
+                    // Simulate server response with a random outage message
+                    const randomIndex = Math.floor(Math.random() * outageMessages.length);
+                    const outageMessage = outageMessages[randomIndex];
+                    showStatusMessage(outageMessage, "info");
+                }, 2000); // Delay for 2 seconds
+            } else {
+                alert("Please enter a valid pin code.");
+            }
+        }
+		function toggleVoiceCallService() {
+			const customerId = parseInt(document.getElementById("customerId").value);
+			const customer = customers.find(cust => cust.id === customerId);
+
+			if (customer) {
+				// Toggle voice call service status (Active/Inactive)
+				customer.voiceStatus = customer.voiceStatus === "Active" ? "Inactive" : "Active";
+				displayCustomerDetails(customer);
+			} else {
+				alert("Customer not found!");
+			}
+		}
+		
+		function switchServicePlan() {
+			const customerId = parseInt(document.getElementById("customerId").value);
+			const customer = customers.find(cust => cust.id === customerId);
+			const newServicePlan = document.getElementById("newPlanCode").value;
+
+			if (customer) {
+				// Change the service plan to the provided plan
+				customer.currentServicePlan = newServicePlan;
+				displayCustomerDetails(customer);
+			} else {
+				alert("Customer not found!");
+			}
+		}
+    </script>
+</body>
+</html>
